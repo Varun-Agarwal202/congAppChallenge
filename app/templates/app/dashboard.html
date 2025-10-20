@@ -1,0 +1,38 @@
+{% extends 'app/base.html' %}
+{% block content %}
+<h1 class = "text-center mt-4">Dashboard</h1>
+<p class = "text-center">Manage your courses and assignments here.</p>
+<div class = "sidebar">
+    <div class = "ms-2" style = "display: inline-flex; justify-content: space-between; align-items: center;">
+        <h3>Saved Rubrics</h3>
+        <button class = "ms-3 btn btn-primary create-rubric-button"><i class="fa-solid fa-plus"></i> </button>
+    </div>
+    <div class = "rubric-list">
+    <ul>
+        {% for rubric in rubrics %}
+            <li>
+                <a>{{ rubric.title }}</a>
+            </li>
+
+        {% endfor %}
+    </ul>
+    </div>
+</div>
+<div hidden = "true" class = "create-rubric-form">
+    <h1>Create New Rubric</h1>
+    <form action = "{% url 'create-rubric' %}" method = "post">
+        {% csrf_token %}
+        <input type = "text" name = "title" placeholder = "Rubric Title">
+        <input type = "text" name = "description" placeholder = "Rubric Description">
+        <button type = "submit" class = "btn btn-primary">Create Rubric</button>
+    </form>
+</div>
+
+<script>
+    const createRubricForm = document.querySelector('.create-rubric-form');
+    const createRubricButton = document.querySelector('.create-rubric-button');
+    createRubricButton.addEventListener('click', () => {
+        createRubricForm.hidden = false;
+    });
+</script>
+{% endblock %}

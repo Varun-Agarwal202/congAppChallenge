@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app',
     'bootstrap5',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount'
 ]
 
 MIDDLEWARE = [
@@ -49,8 +52,27 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "allauth.account.middleware.AccountMiddleware",
 ]
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        # For each OAuth based provider, either add a ``SocialApp``
+        # (``socialaccount`` app) containing the required client
+        # credentials, or list them here:
+        'APP': {
+            'client_id': '16728508667-g39mebbue7flbtgldliorbrbn67pb7u4.apps.googleusercontent.com',
+            'secret': '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',
+            'key': ''
+        },
+    }
+}
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',  # Needed for Django admin login
+    'allauth.account.auth_backends.AuthenticationBackend',  # allauth specific methods
+]
+LOGIN_REDIRECT_URL = 'homepage'
+LOGOUT_REDIRECT_URL = 'homepage'
 ROOT_URLCONF = 'congAppChallenge.urls'
 
 TEMPLATES = [
@@ -70,6 +92,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'congAppChallenge.wsgi.application'
 
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
@@ -122,3 +145,4 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+SITE_ID =1

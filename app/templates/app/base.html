@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Path Finder!</title>
     <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <!-- FullCalendar CSS -->
     <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.css" rel="stylesheet">
@@ -28,6 +29,7 @@
   <body>
     <!-- Navbar -->
     <!-- Navbar -->
+     {% if user.is_authenticated %}
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark shadow-sm">
   <div class="container">
     <a class="navbar-brand fw-bold" href="/">Grader</a>
@@ -42,21 +44,49 @@
         <li class="nav-item">
           <a class="nav-link" href="/">Home</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/dashboard">Dashboard</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link" href="/progress">Student Progress</a>
+        </li>
       </ul>
-      <a href="#get-started" class="btn btn-primary">Get Started</a>
+      <a href="{% url 'account_logout' %}" class="btn btn-primary">Logout</a>
     </div>
   </div>
 </nav>
-
-
+    {% else %}
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark shadow-sm">
+  <div class="container">   
+    <a class="navbar-brand fw-bold" href="/">Grader</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav me-3">
+        <li class="nav-item">
+          <a id="read-page" class="nav-link" href="javascript:void(0)" onclick="readPage()">Read Page</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+      </ul>
+      <a href="{% url 'account_signup' %}" class="btn btn-primary">Get Started</a>
+    </div>
+  </div>
+</nav>
+    {% endif %}
+{% block content %}
+{% endblock %}
 
     <!-- Footer -->
-    <footer class="position-absolute bottom-0 w-100 bg-dark text-white pt-5 mt-5 mt-auto">
-      <div class="container">
+<footer class="footer bg-dark text-white pt-5 mt-5 mt-auto">
+      <div class = "height-25">
+      <div class="footerContent container">
         <div class="row">
           <!-- About Us -->
-          <div class="col-md-4 mb-4">
-            <h5>About Us</h5>
+          <div class="col-md-4 mb-0">
+            <h5 class = "fs-6">About Us</h5>
             <ul class="list-unstyled">
               <li><a class="text-white text-decoration-none" href="#">Mission</a></li>
               <li><a class="text-white text-decoration-none" href="#">FAQs</a></li>
@@ -67,15 +97,15 @@
           </div>
 
           <!-- Contact -->
-          <div class="col-md-4 mb-4">
-            <h5>Contact Us</h5>
+          <div class="col-md-4 mb-0">
+            <h5 class = "fs-6">Contact Us</h5>
             <p>Phone: (123) 456-7890</p>
             <a class="btn btn-outline-light btn-sm" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSeJ6hK63lKGIovrIFJzEEcAM0_yhsLDKZgWhwxQtK1Tq_Y9Lg/viewform?usp=header">Support Form</a>
           </div>
 
           <!-- Social & Language -->
-          <div class="col-md-4 mb-4">
-            <h5>Social Media</h5>
+          <div class="col-md-4 mb-0">
+            <h5 class = "fs-6">Social Media</h5>
             <ul class="list-unstyled">
               <li><a class="text-white text-decoration-none" href="https://x.com/?mx=2">X</a></li>
               <li><a class="text-white text-decoration-none" href="https://instagram.com">Instagram</a></li>
@@ -96,6 +126,7 @@
             </form>
           </div>
         </div>
+      </div>
       </div>
     </footer>
 
