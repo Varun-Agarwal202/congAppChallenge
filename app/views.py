@@ -1,7 +1,11 @@
 from django.shortcuts import render, redirect
-from .models import Rubric
+from .models import Rubric, Student, Progress
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_http_methods
+from django.http import JsonResponse
+from django.db.models import Avg
+from datetime import datetime, timedelta
+import json
 # Create your views here.
 def home(request):
     if request.user.is_authenticated:
@@ -30,3 +34,87 @@ def create_rubric(request):
 
     Rubric.objects.create(title=title, description=description)
     return redirect('dashboard')
+
+def progress(request):
+    rubrics = Rubric.objects.all()
+    students = Student.objects.all()
+    
+    # Get all subjects with their progress data
+    subjects_data = {}
+    subject_choices = [
+        ('Math', 'Math'),
+        ('Science', 'Science'),
+        ('English', 'English'),
+        ('History', 'History'),
+        ('Geography', 'Geography'),
+        ('Art', 'Art'),
+        ('Music', 'Music'),
+    ]
+    
+    for subject_choice in subject_choices:
+        subject = subject_choice[0]
+        subject_rubrics = rubrics.filter(subject=subject)
+        
+        if subject_rubrics.exists():
+            # Get progress data for the last 30 days
+            thirty_days_ago = datetime.now() - timedelta(days=30)
+            progress_data = Progress.objects.filter(
+                rubric__subject=subject,
+                created_at__gte=thirty_days_ago
+            ).order_by('created_at')
+            
+            # Get unique dates for labels
+            dates = progress_data.values_list('created_at__date', flat=True).distinct().order_by('created_at__date')
+            labels = [str(date) for date in dates]
+            
+            # Get all students who have progress in this subject
+            subject_students = Student.objects.filter(progress__rubric__subject=subject).distinct()
+            
+            # Individual student data
+            individual_data = {}
+            for student in subject_students:
+                student_data = []
+                for date in dates:
+                    # Get average score for this student on this date for this subject
+                    avg_score = progress_data.filter(
+                        student=student,
+                        created_at__date=date
+                    ).aggregate(avg_score=Avg('score'))['avg_score']
+                    
+                    student_data.append(round(avg_score, 1) if avg_score else None)
+                
+                individual_data[student.name] = {
+                    'id': student.id,
+                    'data': student_data
+                }
+            
+            # Class average data
+            class_average_data = []
+            for date in dates:
+                # Get average score for all students on this date for this subject
+                avg_score = progress_data.filter(
+                    created_at__date=date
+                ).aggregate(avg_score=Avg('score'))['avg_score']
+                
+                class_average_data.append(round(avg_score, 1) if avg_score else None)
+            
+            subjects_data[subject] = {
+                'labels': labels,
+                'individual': individual_data,
+                'class_average': {
+                    'label': 'Class Average',
+                    'data': class_average_data,
+                    'borderColor': 'rgb(75, 192, 192)',
+                    'backgroundColor': 'rgba(75, 192, 192, 0.1)',
+                    'tension': 0.4,
+                    'fill': False
+                }
+            }
+    
+    context = {
+        'rubrics': rubrics,
+        'students': students,
+        'subjects_data': json.dumps(subjects_data),
+        'students_json': json.dumps([{'id': s.id, 'name': s.name} for s in students])
+    }
+    return render(request, 'app/progress.html', context)
