@@ -123,9 +123,9 @@ def progress(request):
 
 def grade_assignment(request):
     student = request.POST.get('student', '').strip()
-    rubric = request.POST.get('rubric', '').strip()
+    rubric_id = request.POST.get('rubric', '').strip()
     description  = request.POST.get('description', '').strip()
-    rubric = Rubric.objects.get(id=rubric)
+    rubric = Rubric.objects.get(id=rubric_id).description
     print("Student: " +student + " Rubric: " +rubric + " description: " +description)
     return redirect('dashboard')
 
