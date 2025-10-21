@@ -25,7 +25,7 @@ def dashboard(request):
 def create_rubric(request):
     title = request.POST.get('title', '').strip()
     description = request.POST.get('description', '').strip()
-
+    strictness = request.POST.get('strictness', '').strip()
     if not title:
         rubrics = Rubric.objects.all()
         context = {
@@ -34,7 +34,7 @@ def create_rubric(request):
         }
         return render(request, 'app/dashboard.html', context, status=400)
 
-    Rubric.objects.create(title=title, description=description)
+    Rubric.objects.create(title=title, description=description, strictness=strictness)
     return redirect('dashboard')
 
 def progress(request):
@@ -125,8 +125,10 @@ def grade_assignment(request):
     student = request.POST.get('student', '').strip()
     rubric_id = request.POST.get('rubric', '').strip()
     description  = request.POST.get('description', '').strip()
-    rubric = Rubric.objects.get(id=rubric_id).description
-    print("Student: " +student + " Rubric: " +rubric + " description: " +description)
+    rubric = Rubric.objects.get(id=rubric_id)
+    rubric_description = rubric.description
+    strictness = rubric.strictness
+    print("Student: " +student + " Rubric: " +rubric_description + " description: " +description + " strictness: " + str(strictness))
     return redirect('dashboard')
 
 def add_student(request):
