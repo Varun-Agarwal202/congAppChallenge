@@ -1,38 +1,243 @@
 {% extends 'app/base.html' %}
 {% block content %}
-<h1 class = "text-center mt-4">Dashboard</h1>
-<p class = "text-center">Manage your courses and assignments here.</p>
-<div class = "sidebar">
-    <div class = "ms-2" style = "display: inline-flex; justify-content: space-between; align-items: center;">
-        <h3>Saved Rubrics</h3>
-        <button class = "ms-3 btn btn-primary create-rubric-button"><i class="fa-solid fa-plus"></i> </button>
+<div class="dashboard-container">
+    <!-- Header Section -->
+    <div class="dashboard-header text-center mb-5">
+        <h1 class="display-4 fw-bold text-primary mb-3">Dashboard</h1>
+        <p class="lead text-muted">Manage your courses and assignments efficiently</p>
     </div>
-    <div class = "rubric-list">
-    <ul>
-        {% for rubric in rubrics %}
-            <li>
-                <a>{{ rubric.title }}</a>
-            </li>
 
-        {% endfor %}
-    </ul>
+    <!-- Main Content -->
+    <div class="container-fluid px-4">
+        <div class="row g-4">
+            <!-- Left Sidebar - Saved Rubrics -->
+            <div class="col-lg-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0 fw-bold">
+                            <i class="fas fa-clipboard-list me-2"></i>Saved Rubrics
+                        </h5>
+                        <button class="btn btn-light btn-sm create-rubric-button" title="Create New Rubric">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        {% if rubrics %}
+                            <div class="list-group list-group-flush">
+                                {% for rubric in rubrics %}
+                                    <div class="list-group-item d-flex justify-content-between align-items-center border-0 px-0">
+                                        <div class="d-flex align-items-center">
+                                            <i class="fas fa-file-alt text-primary me-3"></i>
+                                            <span class="fw-medium">{{ rubric.title }}</span>
+                                        </div>
+                                        <button value = "{{ rubric.id }}" class="btn btn-outline-primary btn-sm grade-assignment-button" title="Grade Assignment">
+                                            <i class="fas fa-pen-to-square"></i>
+                                        </button>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            <div class="text-center text-muted py-4">
+                                <i class="fas fa-clipboard-list fa-3x mb-3 opacity-50"></i>
+                                <p>No rubrics saved yet</p>
+                                <small>Click the + button to create your first rubric</small>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Content Area -->
+            <div class="col-lg-8">
+                <!-- Create Rubric Form -->
+                <div hidden="true" class="create-rubric-form">
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-success text-white">
+                            <h5 class="mb-0 fw-bold">
+                                <i class="fas fa-plus-circle me-2"></i>Create New Rubric
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <form action="{% url 'create-rubric' %}" method="post">
+                                {% csrf_token %}
+                                <div class="mb-3">
+                                    <label for="title" class="form-label fw-medium">Rubric Title</label>
+                                    <input type="text" class="form-control form-control-lg" id="title" name="title" 
+                                           placeholder="Enter rubric title..." required>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="description" class="form-label fw-medium">Rubric Description</label>
+                                    <textarea class="form-control" id="description" name="description" rows="8" 
+                                              placeholder="Describe the rubric criteria and expectations..." required></textarea>
+                                </div>
+                                <div class="d-flex gap-2">
+                                    <button type="submit" class="btn btn-success btn-lg px-4">
+                                        <i class="fas fa-save me-2"></i>Create Rubric
+                                    </button>
+                                    <button type="button" class="btn btn-outline-secondary btn-lg" onclick="hideAllForms()">
+                                        <i class="fas fa-times me-2"></i>Cancel
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grade Assignment Form -->
+                <div hidden="true" class="grade-assignment-form">
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-warning text-dark">
+                            <h5 class="mb-0 fw-bold">
+                                <i class="fas fa-graduation-cap me-2"></i>Grade Assignment
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <form action="{% url 'grade-assignment' %}" method="post">
+                                {% csrf_token %}
+                                <div class="mb-3">
+                                    <label for="student" class="form-label fw-medium">Select Student</label>
+                                    <select class="form-select form-select-lg select-student-button" name="student" id="student" required>
+                                        <option value="">Choose a student...</option>
+                                        {% for student in students %}
+                                            <option value="{{ student.id }}">{{ student.name }}</option>
+                                        {% endfor %}
+                                        <option class="add-student-button" value="add-student">+ Add New Student</option>
+                                    </select>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label for="assignment-description" class="form-label fw-medium">Assignment</label>
+                                    <textarea class="form-control" id="assignment-description" name="description" rows="3" 
+                                              placeholder="Paste the assignment..." required></textarea>
+                                </div>
+                                <input type="hidden" name="rubric" id="rubric-id" value="">
+                                <div class="d-flex gap-2">
+                                    <button type="submit" class="btn btn-warning btn-lg px-4">
+                                        <i class="fas fa-check-circle me-2"></i>Grade Assignment
+                                    </button>
+                                    <button type="button" class="btn btn-outline-secondary btn-lg" onclick="hideAllForms()">
+                                        <i class="fas fa-times me-2"></i>Cancel
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add Student Form -->
+                <div hidden="true" class="add-student-form">
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-info text-white">
+                            <h5 class="mb-0 fw-bold">
+                                <i class="fas fa-user-plus me-2"></i>Add New Student
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <form action="{% url 'add-student' %}" method="post">
+                                {% csrf_token %}
+                                <div class="mb-4">
+                                    <label for="student-name" class="form-label fw-medium">Student Name</label>
+                                    <input type="text" class="form-control form-control-lg" id="student-name" name="name" 
+                                           placeholder="Enter student's full name..." required>
+                                </div>
+                                <div class="d-flex gap-2">
+                                    <button type="submit" class="btn btn-info btn-lg px-4">
+                                        <i class="fas fa-user-plus me-2"></i>Add Student
+                                    </button>
+                                    <button type="button" class="btn btn-outline-secondary btn-lg" onclick="hideAllForms()">
+                                        <i class="fas fa-times me-2"></i>Cancel
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Default State -->
+                <div class="default-state text-center py-5">
+                    <div class="card shadow-sm border-0">
+                        <div class="card-body py-5">
+                            <i class="fas fa-magic fa-4x text-primary mb-4 opacity-75"></i>
+                            <h4 class="text-muted mb-3">Welcome to Your Dashboard</h4>
+                            <p class="text-muted mb-4">Choose an action from the sidebar to get started with creating rubrics or grading assignments.</p>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="p-3 border rounded bg-light">
+                                        <i class="fas fa-clipboard-list fa-2x text-success mb-2"></i>
+                                        <h6>Create Rubrics</h6>
+                                        <small class="text-muted">Design custom grading criteria</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="p-3 border rounded bg-light">
+                                        <i class="fas fa-graduation-cap fa-2x text-warning mb-2"></i>
+                                        <h6>Grade Assignments</h6>
+                                        <small class="text-muted">Evaluate student work efficiently</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-<div hidden = "true" class = "create-rubric-form">
-    <h1>Create New Rubric</h1>
-    <form action = "{% url 'create-rubric' %}" method = "post">
-        {% csrf_token %}
-        <input type = "text" name = "title" placeholder = "Rubric Title">
-        <input type = "text" name = "description" placeholder = "Rubric Description">
-        <button type = "submit" class = "btn btn-primary">Create Rubric</button>
-    </form>
-</div>
-
 <script>
+    // Form elements
     const createRubricForm = document.querySelector('.create-rubric-form');
+    const gradeAssignmentForm = document.querySelector('.grade-assignment-form');
+    const addStudentForm = document.querySelector('.add-student-form');
+    const defaultState = document.querySelector('.default-state');
+    
+    // Buttons
     const createRubricButton = document.querySelector('.create-rubric-button');
+    const gradeAssignmentButtons = document.querySelectorAll('.grade-assignment-button');
+    const selectStudentButton = document.querySelector('.select-student-button');
+    
+    // Hide all forms and show default state
+    function hideAllForms() {
+        createRubricForm.hidden = true;
+        gradeAssignmentForm.hidden = true;
+        addStudentForm.hidden = true;
+        defaultState.hidden = false;
+    }
+    
+    // Show specific form and hide others
+    function showForm(formToShow) {
+        hideAllForms();
+        formToShow.hidden = false;
+        defaultState.hidden = true;
+    }
+    
+    // Create rubric button event
     createRubricButton.addEventListener('click', () => {
-        createRubricForm.hidden = false;
+        showForm(createRubricForm);
+    });
+    
+    // Grade assignment buttons events (multiple buttons)
+    gradeAssignmentButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            showForm(gradeAssignmentForm);
+            // Set the rubric ID in the hidden input
+            const rubricIdInput = document.getElementById('rubric-id');
+            rubricIdInput.value = button.value;
+            console.log('Selected rubric ID:', rubricIdInput.value);
+        });
+    });
+    
+    // Student selection change event
+    selectStudentButton.addEventListener('change', () => {
+        if (selectStudentButton.value === 'add-student') {
+            showForm(addStudentForm);
+        } else if (selectStudentButton.value === '') {
+            hideAllForms();
+        }
+    });
+    
+    // Initialize - hide all forms on page load
+    document.addEventListener('DOMContentLoaded', () => {
+        hideAllForms();
     });
 </script>
 {% endblock %}

@@ -14,8 +14,10 @@ def home(request):
         return render(request, 'app/home.html')
 def dashboard(request):
     rubrics = Rubric.objects.all()
+    students = Student.objects.all()
     context = {
-        'rubrics': rubrics
+        'rubrics': rubrics,
+        'students': students
     }
     return render(request, 'app/dashboard.html', context)
 @login_required
@@ -118,3 +120,19 @@ def progress(request):
         'students_json': json.dumps([{'id': s.id, 'name': s.name} for s in students])
     }
     return render(request, 'app/progress.html', context)
+
+def grade_assignment(request):
+    student = request.POST.get('student', '').strip()
+    rubric = request.POST.get('rubric', '').strip()
+    description  = request.POST.get('description', '').strip()
+    rubric = Rubric.objects.get(id=rubric)
+    print("Student: " +student + " Rubric: " +rubric + " description: " +description)
+    return redirect('dashboard')
+
+def add_student(request):
+    name = request.POST.get('name', '').strip()
+    print(name)
+    print(request.POST)
+    Student.objects.create(name=name)
+    print(Student.objects.all())
+    return redirect('dashboard')

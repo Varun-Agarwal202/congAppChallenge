@@ -35,8 +35,8 @@ src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0">
 </div>
 <script>
 let progressChart;
-const subjectsData = {{ subjects_data|safe }};
-const studentsData = {{ students_json|safe }};
+const subjectsData = JSON.parse('{{ subjects_data | tojson | safe }}');
+const studentsData = JSON.parse('{{ students_json | tojson | safe }}');
 
 // Initialize chart with empty data
 function initChart() {
