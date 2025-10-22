@@ -6,6 +6,46 @@ from django.http import JsonResponse
 from django.db.models import Avg
 from datetime import datetime, timedelta
 import json
+import google.generativeai as genai
+from django.conf import settings
+
+# Configure Gemini client once
+genai.configure(api_key=settings.GOOGLE_API_KEY)
+
+def grade_assignment(request):
+    model = genai.GenerativeModel("gemini-1.5-pro")
+    student = request.POST.get('student', '').strip()
+    rubric_id = request.POST.get('rubric', '').strip()
+    description  = request.POST.get('description', '').strip()
+    rubric = Rubric.objects.get(id=rubric_id)
+    rubric_description = rubric.description
+    strictness = rubric.strictness
+
+    prompt_score = f""" 
+    Strictness rating (How strict you should grade this student's assignment): {strictness}
+    Rubric (The criteria of which you will be grading the assignment): {rubric.description}
+    Student's Assignment (The work that you will be grading): {description}
+
+    You are a teacher grading an assignment, with a strictness rating of {strictness} / 10. Grade this students assignment with the 
+    following rubric and only output a score out of the total the rubric specifies in the format of \" score / total \"."""
+
+    assignment_score = model.generate_content(prompt_score)
+
+    prompt_feedback = f"""
+    Assignment Score (The score you have given the student for their assignment): {assignment_score}
+    Strictness rating (How strict you have graded this student's assignment): {strictness}
+    Rubric (The criteria of which you graded an assignment): {rubric.description}
+    Student's Assignment (The work that you will be grading): {description}
+
+    You are a teacher that has graded an assignment, with a strictness rating above. You have graded their assignment with a score listed above.
+    Provide 1-2 sentences of feedback as to why they have not received a higher score based upon the rubric and the criteria it details, and if 
+    they did receive the maximum score, just return \"All criteria satisfied.\""""
+
+    assignment_feedback = model.generate_content(prompt_feedback)
+
+    print("Student: " +student + " Rubric: " +rubric_description + " description: " +description + " strictness: " + str(strictness) + " score: " + assignment_score + " feedback: " + assignment_feedback)
+    return redirect('dashboard')
+
 # Create your views here.
 def home(request):
     if request.user.is_authenticated:
