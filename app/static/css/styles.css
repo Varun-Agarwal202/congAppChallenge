@@ -1,25 +1,49 @@
-.footer {
-    height: 160px;
-    font-size: smaller;
+/* Reset and base styles */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Main content wrapper */
+.dashboard-container {
+    flex: 1 0 auto; /* Changed from min-height to flex */
+    width: 100%;
+    padding-bottom: 2rem; /* Add some bottom padding */
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+/* Footer styles */
+.footer {
+    flex-shrink: 0; /* Prevent footer from shrinking */
+    width: 100%;
+    background-color: #212529;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
 .footerContent {
-    height: 80%;
-    margin-top: -40px;
+    padding: 1rem 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-html, body {
-  height: 100%;
+
+/* Remove these conflicting styles */
+.footer {
+    height: auto; /* Changed from fixed height */
+    font-size: smaller;
 }
 
-body {
-  display: flex;
-  flex-direction: column;
-}
-
-footer {
-  margin-top: auto;
+.footerContent {
+    height: auto; /* Changed from percentage */
+    margin-top: 0; /* Remove negative margin */
 }
 
 /* Dashboard Styling */
@@ -74,6 +98,11 @@ footer {
     border-radius: 8px;
     font-weight: 500;
     transition: all 0.3s ease;
+}
+.strictness-input {
+    width: 30%;
+    display: inline-block;
+    margin-left: 10px;
 }
 
 .btn:hover {

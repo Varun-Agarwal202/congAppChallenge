@@ -19,9 +19,12 @@ def grade_assignment(request):
     description  = request.POST.get('description', '').strip()
     rubric = Rubric.objects.get(id=rubric_id)
     strictness = rubric.strictness
+    grade_level = rubric.grade_level
+    print(grade_level)
 
     prompt_score = f""" 
     Strictness rating (How strict you should grade this student's assignment): {strictness}
+    Grade Level (The educational level of the student): {grade_level}
     Rubric (The criteria of which you will be grading the assignment): {rubric.description}
     Student's Assignment (The work that you will be grading): {description}
 
@@ -64,6 +67,7 @@ def grade_assignment(request):
             'feedback_summary': feedback_summary,
             'rubric_breakdown': rubric_breakdown,
             'strictness': strictness,
+            'grade_level': grade_level
         }
         
         return render(request, 'app/grade_result.html', context)
@@ -93,6 +97,8 @@ def create_rubric(request):
     title = request.POST.get('title', '').strip()
     description = request.POST.get('description', '').strip()
     strictness = request.POST.get('strictness', '').strip()
+    grade = request.POST.get('grade-level', '').strip()
+    print('grade level:', grade)
     if not title:
         rubrics = Rubric.objects.all()
         context = {
@@ -101,7 +107,7 @@ def create_rubric(request):
         }
         return render(request, 'app/dashboard.html', context, status=400)
 
-    Rubric.objects.create(title=title, description=description, strictness=strictness)
+    Rubric.objects.create(title=title, description=description, strictness=strictness , grade_level=grade)
     return redirect('dashboard')
 
 def progress(request):

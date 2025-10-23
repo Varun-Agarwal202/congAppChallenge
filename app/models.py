@@ -16,6 +16,7 @@ class Rubric(models.Model):
         ('Art', 'Art'),
         ('Music', 'Music'),
     ], default='Math')
+    grade_level = models.CharField(max_length=50 , default='Grade 1')
     strictness = models.IntegerField(default=5, validators=[MinValueValidator(1), MaxValueValidator(10)])
 
     def __str__(self):
