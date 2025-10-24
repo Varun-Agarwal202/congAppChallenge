@@ -15,7 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from app.views import home, dashboard, create_rubric, progress, grade_assignment, add_student
+from app.views import home, dashboard, create_rubric, progress, grade_assignment, add_student, delete_rubric, edit_rubric
 from django.urls import path, include
 
 urlpatterns = [
@@ -25,6 +25,7 @@ urlpatterns = [
     path('create-rubric/', create_rubric, name="create-rubric"),
     path('progress/', progress, name = "progress"),
     path('grade-assignment/', grade_assignment, name="grade-assignment"),
-    path('add-student/', add_student, name="add-student")
-
+    path('add-student/', add_student, name="add-student"),
+    path('delete-rubric/<int:rubric_id>/', delete_rubric, name="delete-rubric"),
+    path('edit-rubric/<int:rubric_id>/', edit_rubric, name="edit-rubric"),
 ]

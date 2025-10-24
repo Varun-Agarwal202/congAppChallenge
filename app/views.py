@@ -202,3 +202,32 @@ def add_student(request):
     Student.objects.create(name=name)
     print(Student.objects.all())
     return redirect('dashboard')
+
+def delete_rubric(request, rubric_id):
+    try:
+        rubric = Rubric.objects.get(id=rubric_id)
+        rubric.delete()
+        return JsonResponse({'status': 'success'})
+    except Rubric.DoesNotExist:
+        return JsonResponse({'status': 'error', 'message': 'Rubric not found'}, status=404)
+    
+def edit_rubric(request, rubric_id):
+    rubric = Rubric.objects.get(id=rubric_id)
+    if request.method == 'POST':
+        title = request.POST.get('title', '').strip()
+        description = request.POST.get('description', '').strip()
+        strictness = request.POST.get('strictness', '').strip()
+        grade = request.POST.get('grade-level', '').strip()
+        
+        rubric.title = title
+        rubric.description = description
+        rubric.strictness = strictness
+        rubric.grade_level = grade
+        rubric.save()
+        
+        return redirect('dashboard')
+    
+    context = {
+        'rubric': rubric
+    }
+    return redirect('dashboard')

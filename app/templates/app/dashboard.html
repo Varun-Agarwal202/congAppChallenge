@@ -30,9 +30,28 @@
                                             <i class="fas fa-file-alt text-primary me-3"></i>
                                             <span class="fw-medium">{{ rubric.title }}</span>
                                         </div>
-                                        <button value = "{{ rubric.id }}" class="btn btn-outline-primary btn-sm grade-assignment-button" title="Grade Assignment">
-                                            <i class="fas fa-pen-to-square"></i>
-                                        </button>
+                                        <div class="d-flex align-items-center">
+                                            <button value="{{ rubric.id }}" class="btn btn-outline-primary btn-sm grade-assignment-button me-2" title="Grade Assignment">
+                                                <i class="fas fa-pen-to-square"></i>
+                                            </button>
+                                            <button 
+                                                value="{{ rubric.id }}"
+                                                onclick="showEditRubric(
+                                                    this.value, 
+                                                    '{{ rubric.title|escapejs }}', 
+                                                    '{{ rubric.description|escapejs }}', 
+                                                    '{{ rubric.strictness|escapejs }}', 
+                                                    '{{ rubric.grade_level|escapejs }}'
+                                                )"
+                                                class="btn btn-outline-secondary btn-sm edit-rubric-button me-2"
+                                                title="Edit Rubric">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+
+                                            <button onclick = "deleteRubric(this.value)" value="{{ rubric.id }}" class="btn btn-outline-danger btn-sm delete-rubric-button" title="Delete Rubric">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
                                     </div>
                                 {% endfor %}
                             </div>
@@ -210,13 +229,14 @@
     const createRubricButton = document.querySelector('.create-rubric-button');
     const gradeAssignmentButtons = document.querySelectorAll('.grade-assignment-button');
     const selectStudentButton = document.querySelector('.select-student-button');
-    
+    const editRubricButtons = document.querySelectorAll('.edit-rubric-button');
     // Hide all forms and show default state
     function hideAllForms() {
         createRubricForm.hidden = true;
         gradeAssignmentForm.hidden = true;
         addStudentForm.hidden = true;
         defaultState.hidden = false;
+        resetCreateRubricForm();
     }
     
     // Show specific form and hide others
@@ -231,6 +251,38 @@
         showForm(createRubricForm);
     });
     
+    function showEditRubric(rubricId, title, description, strictness, gradeLevel) {
+        showForm(createRubricForm);
+        // Populate form fields with existing rubric data
+        document.getElementById('title').value = title;
+        document.getElementById('description').value = description;
+        document.getElementById('strictness').value = strictness;
+        document.getElementById('grade-level').value = gradeLevel;
+        // Change form action to update endpoint
+        const submitButton = createRubricForm.querySelector('button[type="submit"]');
+        submitButton.innerHTML = '<i class="fas fa-save me-2"></i>Update Rubric';
+
+        const header = createRubricForm.querySelector('.card-header h5');
+        header.innerHTML = '<i class="fas fa-edit me-2"></i>Edit Rubric';
+        createRubricForm.querySelector('form').action = `/edit-rubric/${rubricId}/`;
+        const cardHeader = createRubricForm.querySelector('.card-header');
+        cardHeader.classList.remove('bg-success');
+        cardHeader.classList.add('bg-primary');
+    }
+    function resetCreateRubricForm() {
+        document.getElementById('title').value = '';
+        document.getElementById('description').value = '';
+        document.getElementById('strictness').value = '';
+        document.getElementById('grade-level').value = '';
+        const submitButton = createRubricForm.querySelector('button[type="submit"]');
+        submitButton.innerHTML = '<i class="fas fa-save me-2"></i>Create Rubric';
+        const header = createRubricForm.querySelector('.card-header h5');
+        header.innerHTML = '<i class="fas fa-plus-circle me-2"></i>Create New Rubric';
+        createRubricForm.querySelector('form').action = '{% url "create-rubric" %}';
+        const cardHeader = createRubricForm.querySelector('.card-header');
+        cardHeader.classList.remove('bg-primary');
+        cardHeader.classList.add('bg-success');
+    }
     // Grade assignment buttons events (multiple buttons)
     gradeAssignmentButtons.forEach(button => {
         button.addEventListener('click', () => {
@@ -255,5 +307,25 @@
     document.addEventListener('DOMContentLoaded', () => {
         hideAllForms();
     });
+    async function deleteRubric(rubricId) {
+        if (confirm("Are you sure you want to delete this rubric?")) {
+            try {
+                const response = await fetch(`/delete-rubric/${rubricId}/`, {
+                    method: 'DELETE',
+                    headers: {
+                        'X-CSRFToken': '{{ csrf_token }}',
+                    },
+                });
+                if (response.ok) {
+                    location.reload();
+                } else {
+                    alert("Failed to delete rubric.");
+                }
+            } catch (error) {
+                console.error("Error deleting rubric:", error);
+                alert("An error occurred while deleting the rubric.");
+            }
+        }
+    }
 </script>
 {% endblock %}
