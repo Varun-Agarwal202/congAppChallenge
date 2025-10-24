@@ -141,6 +141,31 @@ body {
     background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
 }
 
+/* Outer light-grey box for user-reviews */
+.review-outbox {
+    background-color: #d1cfcf;
+    transition: transform 0.2s ease;
+}
+
+/* Super cools fade in */
+.review-outbox:hover {
+  transform: translateY(-5px);
+}
+
+/* Inner lightish-grey box for user-reviews */
+.review-inbox {
+  background-color: #b1b0b0;
+}
+
+.review-outbox h5 {
+  color: #171717;
+}
+
+.review-outbox p {
+  color: #444;
+  font-style: italic;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .dashboard-header h1 {
