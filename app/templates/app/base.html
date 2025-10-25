@@ -32,46 +32,46 @@
      {% if user.is_authenticated %}
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark shadow-sm">
   <div class="container">
-    <a class="navbar-brand fw-bold" href="/">Grader</a>
+    <a class="navbar-brand fw-bold" href="{% url 'homepage' %}">{% trans "Grader" %}</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav me-3">
         <li class="nav-item">
-          <a id="read-page" class="nav-link" href="javascript:void(0)" onclick="readPage()">Read Page</a>
+          <a id="read-page" class="nav-link" href="javascript:void(0)" onclick="readPage()">{% trans "Read Page" %}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/">Home</a>
+          <a class="nav-link" href="{% url 'homepage' %}">{% trans "Home" %}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/dashboard">Dashboard</a>
+          <a class="nav-link" href="{% url 'dashboard' %}">{% trans "Dashboard" %}</a>
         </li>
-         <li class="nav-item">
-          <a class="nav-link" href="/progress">Student Progress</a>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'progress' %}">{% trans "Student Progress" %}</a>
         </li>
       </ul>
-      <a href="{% url 'account_logout' %}" class="btn btn-primary">Logout</a>
+      <a href="{% url 'account_logout' %}" class="btn btn-primary">{% trans "Logout" %}</a>
     </div>
   </div>
 </nav>
     {% else %}
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark shadow-sm">
   <div class="container">   
-    <a class="navbar-brand fw-bold" href="/">Grader</a>
+    <a class="navbar-brand fw-bold" href="{% url 'homepage' %}">{% trans "Grader" %}</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav me-3">
         <li class="nav-item">
-          <a id="read-page" class="nav-link" href="javascript:void(0)" onclick="readPage()">Read Page</a>
+          <a id="read-page" class="nav-link" href="javascript:void(0)" onclick="readPage()">{% trans "Read Page" %}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/">Home</a>
+          <a class="nav-link" href="{% url 'homepage' %}">{% trans "Home" %}</a>
         </li>
       </ul>
-      <a href="{% url 'account_signup' %}" class="btn btn-primary">Get Started</a>
+      <a href="{% url 'account_signup' %}" class="btn btn-primary">{% trans "Get Started" %}</a>
     </div>
   </div>
 </nav>
@@ -86,26 +86,26 @@
         <div class="row">
           <!-- About Us -->
           <div class="col-md-4 mb-0">
-            <h5 class = "fs-6">About Us</h5>
+            <h5 class = "fs-6">{% trans "About Us" %}</h5>
             <ul class="list-unstyled">
-              <li><a class="text-white text-decoration-none" href="#">Mission</a></li>
-              <li><a class="text-white text-decoration-none" href="#">FAQs</a></li>
-              <li><a class="text-white text-decoration-none" href="#">Terms of Service</a></li>
-              <li><a class="text-white text-decoration-none" href="#">Sources</a></li>
-              <li><a class="text-white text-decoration-none" href="#">Privacy Policy</a></li>
+              <li><a class="text-white text-decoration-none" href="#">{% trans "Mission" %}</a></li>
+              <li><a class="text-white text-decoration-none" href="#">{% trans "FAQs" %}</a></li>
+              <li><a class="text-white text-decoration-none" href="#">{% trans "Terms of Service" %}</a></li>
+              <li><a class="text-white text-decoration-none" href="#">{% trans "Sources" %}</a></li>
+              <li><a class="text-white text-decoration-none" href="#">{% trans "Privacy Policy" %}</a></li>
             </ul>
           </div>
 
           <!-- Contact -->
           <div class="col-md-4 mb-0">
-            <h5 class = "fs-6">Contact Us</h5>
-            <p>Phone: (123) 456-7890</p>
-            <a class="btn btn-outline-light btn-sm" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSeJ6hK63lKGIovrIFJzEEcAM0_yhsLDKZgWhwxQtK1Tq_Y9Lg/viewform?usp=header">Support Form</a>
+            <h5 class = "fs-6">{% trans "Contact Us" %}</h5>
+            <p>{% trans "Phone:" %} (123) 456-7890</p>
+            <a class="btn btn-outline-light btn-sm" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSeJ6hK63lKGIovrIFJzEEcAM0_yhsLDKZgWhwxQtK1Tq_Y9Lg/viewform?usp=header">{% trans "Support Form" %}</a>
           </div>
 
           <!-- Social & Language -->
           <div class="col-md-4 mb-0">
-            <h5 class = "fs-6">Social Media</h5>
+            <h5 class = "fs-6">{% trans "Social Media" %}</h5>
             <ul class="list-unstyled">
               <li><a class="text-white text-decoration-none" href="https://x.com/?mx=2">X</a></li>
               <li><a class="text-white text-decoration-none" href="https://instagram.com">Instagram</a></li>
@@ -113,7 +113,7 @@
             </ul>
 
             <!-- Language Selector -->
-            <form method="post">
+            <form method="post" action = "{% url 'set_language' %}">
               {% csrf_token %}
               <select name="language" class="form-select form-select-sm mt-2" onchange="this.form.submit()">
                 {% get_current_language as LANGUAGE_CODE %}

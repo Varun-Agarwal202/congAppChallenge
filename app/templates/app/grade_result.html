@@ -1,4 +1,5 @@
 {% extends 'app/base.html' %}
+{% load i18n %}
 {% block content %}
 <div class="container-fluid py-4">
     <div class="row justify-content-center">
@@ -7,19 +8,19 @@
             <div class="card shadow-sm mb-4">
                 <div class="card-header bg-primary text-white">
                     <h3 class="mb-0">
-                        <i class="fas fa-graduation-cap me-2"></i>Assignment Grading Results
+                        <i class="fas fa-graduation-cap me-2"></i>{% trans "Assignment Grading Results" %}
                     </h3>
                 </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6">
-                            <h5><strong>Student:</strong> {{ student.name }}</h5>
-                            <h5><strong>Rubric:</strong> {{ rubric.title }}</h5>
+                            <h5><strong>{% trans "Student:" %}</strong> {{ student.name }}</h5>
+                            <h5><strong>{% trans "Rubric:" %}</strong> {{ rubric.title }}</h5>
                         </div>
                         <div class="col-md-6">
-                            <h5><strong>Strictness Level:</strong> {{ strictness }}/10</h5>
-                            <h5><strong>Grade Level:</strong> {{ grade_level }}</h5>
-                            <h5><strong>Total Score:</strong> <span class="badge bg-success fs-6">{{ total_score }}</span></h5>
+                            <h5><strong>{% trans "Strictness Level:" %}</strong> {{ strictness }}/10</h5>
+                            <h5><strong>{% trans "Grade Level:" %}</strong> {{ grade_level }}</h5>
+                            <h5><strong>{% trans "Total Score:" %}</strong> <span class="badge bg-success fs-6">{{ total_score }}</span></h5>
                         </div>
                     </div>
                 </div>

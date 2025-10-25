@@ -1,10 +1,11 @@
 {% extends 'app/base.html' %}
+{% load i18n %}
 {% block content %}
 <div class="dashboard-container">
     <!-- Header Section -->
     <div class="dashboard-header text-center mb-5">
-        <h1 class="display-4 fw-bold text-primary mb-3">Dashboard</h1>
-        <p class="lead text-muted">Manage your courses and assignments efficiently</p>
+        <h1 class="display-4 fw-bold text-primary mb-3">{% trans "Dashboard" %}</h1>
+        <p class="lead text-muted">{% trans "Manage your courses and assignments efficiently" %}</p>
     </div>
 
     <!-- Main Content -->
@@ -15,9 +16,9 @@
                 <div class="card shadow-sm h-100">
                     <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
                         <h5 class="mb-0 fw-bold">
-                            <i class="fas fa-clipboard-list me-2"></i>Saved Rubrics
+                            <i class="fas fa-clipboard-list me-2"></i>{% trans "Saved Rubrics" %}
                         </h5>
-                        <button class="btn btn-light btn-sm create-rubric-button" title="Create New Rubric">
+                        <button class="btn btn-light btn-sm create-rubric-button" title="{% trans 'Create New Rubric' %}">
                             <i class="fas fa-plus"></i>
                         </button>
                     </div>
@@ -80,21 +81,21 @@
                             <form action="{% url 'create-rubric' %}" method="post">
                                 {% csrf_token %}
                                 <div class="mb-3">
-                                    <label for="title" class="form-label fw-medium">Rubric Title</label>
+                                    <label for="title" class="form-label fw-medium">{% trans "Rubric Title" %}</label>
                                     <input type="text" class="form-control form-control-lg" id="title" name="title" 
                                            placeholder="Enter rubric title..." required>
                                 </div>
                                 <div class="mb-4">
-                                    <label for="description" class="form-label fw-medium">Rubric Description</label>
+                                    <label for="description" class="form-label fw-medium">{% trans "Rubric Description" %}</label>
                                     <textarea class="form-control" id="description" name="description" rows="8" 
                                               placeholder="Describe the rubric criteria and expectations..." required></textarea>
                                 </div>
                                 <div class="mb-4 strictness-input d-inline-block pe-5 me-5">
-                                    <label for="strictness" class="form-label fw-medium">Strictness</label>
+                                    <label for="strictness" class="form-label fw-medium">{% trans "Strictness" %}</label>
                                     <input type="number" class="form-control" id="strictness" name="strictness" placeholder="Enter strictness level (1-10)" min="1" max="10" required>
                                 </div>
                                 <div class = "mb-4 w-50 d-inline-block ps-5 ms-5">
-                                    <label for="grade" class = "form-label fw-medium">Grade Level</label>
+                                    <label for="grade" class = "form-label fw-medium">{% trans "Grade Level" %}</label>
                                     <input type = "text" class="form-control" id="grade-level" name="grade-level" placeholder="Enter grade level" required>
                                 </div>
                                 <div class="d-flex gap-2">

@@ -17,10 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from app.views import home, dashboard, create_rubric, progress, grade_assignment, add_student, delete_rubric, edit_rubric
 from django.urls import path, include
+from django.conf.urls.i18n import i18n_patterns
 
 urlpatterns = [
     path('', home, name='homepage'),
-    path('accounts/', include('allauth.urls')),
     path('dashboard/', dashboard, name = "dashboard"),
     path('create-rubric/', create_rubric, name="create-rubric"),
     path('progress/', progress, name = "progress"),

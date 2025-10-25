@@ -1,0 +1,2823 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-10-25 04:50+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Spanish <es@li.org>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: app/templates/account/account_inactive.html:5
+#: app/templates/account/account_inactive.html:9
+msgid "Account Inactive"
+msgstr "Cuenta Inactiva"
+
+#: app/templates/account/account_inactive.html:12
+msgid "This account is inactive."
+msgstr "Esta cuenta está inactiva."
+
+#: app/templates/account/base_confirm_code.html:27
+#, python-format
+msgid ""
+"We've sent a code to %(recipient)s. The code expires shortly, so please "
+"enter it soon."
+msgstr ""
+"Hemos enviado un código a %(recipient)s. El código expira pronto, así que "
+"ingrésalo pronto."
+
+#: app/templates/account/base_confirm_code.html:39
+#: app/templates/account/email_confirm.html:24
+#: app/templates/account/reauthenticate.html:18
+#: app/templates/idp/oidc/device_authorization_confirm_form.html:26
+#: app/templates/mfa/reauthenticate.html:18
+msgid "Confirm"
+msgstr "Confirmar"
+
+#: app/templates/account/base_confirm_code.html:43
+msgid "Request new code"
+msgstr "Solicitar nuevo código"
+
+#: app/templates/account/base_confirm_code.html:48
+#: app/templates/account/base_confirm_code.html:52
+#: app/templates/account/password_reset_from_key.html:33
+#: app/templates/idp/oidc/authorization_form.html:26
+#: app/templates/mfa/authenticate.html:28
+#: app/templates/mfa/authenticate.html:44 app/templates/mfa/trust.html:29
+#: app/templates/mfa/webauthn/signup_form.html:26
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: app/templates/account/base_reauthenticate.html:5
+#: app/templates/account/base_reauthenticate.html:9
+msgid "Confirm Access"
+msgstr "Confirmar Acceso"
+
+#: app/templates/account/base_reauthenticate.html:12
+msgid "Please reauthenticate to safeguard your account."
+msgstr "Por favor, reautentícate para proteger tu cuenta."
+
+#: app/templates/account/base_reauthenticate.html:19
+#: app/templates/mfa/authenticate.html:37
+msgid "Alternative options"
+msgstr "Opciones alternativas"
+
+#: app/templates/account/confirm_email_verification_code.html:5
+msgid "Email Verification"
+msgstr "Verificación de Correo Electrónico"
+
+#: app/templates/account/confirm_email_verification_code.html:8
+msgid "Enter Email Verification Code"
+msgstr "Ingresar Código de Verificación de Correo Electrónico"
+
+#: app/templates/account/confirm_email_verification_code.html:16
+msgid "Use a different email address"
+msgstr "Usar una dirección de correo electrónico diferente"
+
+#: app/templates/account/confirm_login_code.html:5
+#: app/templates/account/login.html:5 app/templates/account/login.html:10
+#: app/templates/account/login.html:33
+#: app/templates/account/request_login_code.html:5
+#: app/templates/mfa/authenticate.html:6 app/templates/mfa/authenticate.html:24
+#: app/templates/openid/login.html:5 app/templates/openid/login.html:9
+#: app/templates/openid/login.html:20 app/templates/socialaccount/login.html:5
+#: app/templates/socialaccount/login_redirect.html:5
+msgid "Sign In"
+msgstr "Iniciar Sesión"
+
+#: app/templates/account/confirm_login_code.html:8
+msgid "Enter Sign-In Code"
+msgstr "Ingresar Código de Inicio de Sesión"
+
+#: app/templates/account/confirm_password_reset_code.html:5
+#: app/templates/account/email/password_reset_subject.txt:3
+#: app/templates/account/password_reset.html:4
+#: app/templates/account/password_reset.html:8
+#: app/templates/account/password_reset_done.html:6
+#: app/templates/account/password_reset_done.html:10
+msgid "Password Reset"
+msgstr "Restablecimiento de Contraseña"
+
+#: app/templates/account/confirm_password_reset_code.html:8
+msgid "Enter Password Reset Code"
+msgstr "Ingresar Código de Restablecimiento de Contraseña"
+
+#: app/templates/account/confirm_phone_verification_code.html:5
+msgid "Phone Verification"
+msgstr "Verificación Telefónica"
+
+#: app/templates/account/confirm_phone_verification_code.html:8
+msgid "Enter Phone Verification Code"
+msgstr "Ingresar Código de Verificación Telefónica"
+
+#: app/templates/account/confirm_phone_verification_code.html:15
+msgid "Use a different phone number"
+msgstr "Usar un número de teléfono diferente"
+
+#: app/templates/account/email.html:4 app/templates/account/email.html:8
+msgid "Email Addresses"
+msgstr "Direcciones de Correo Electrónico"
+
+#: app/templates/account/email.html:12
+msgid "The following email addresses are associated with your account:"
+msgstr ""
+"Las siguientes direcciones de correo electrónico están asociadas a tu cuenta:"
+
+#: app/templates/account/email.html:25
+msgid "Verified"
+msgstr "Verificado"
+
+#: app/templates/account/email.html:29
+msgid "Unverified"
+msgstr "No verificado"
+
+#: app/templates/account/email.html:34
+msgid "Primary"
+msgstr "Principal"
+
+#: app/templates/account/email.html:44
+msgid "Make Primary"
+msgstr "Establecer como Principal"
+
+#: app/templates/account/email.html:47
+#: app/templates/account/email_change.html:37
+#: app/templates/account/phone_change.html:24
+msgid "Re-send Verification"
+msgstr "Reenviar Verificación"
+
+#: app/templates/account/email.html:50
+#: app/templates/mfa/webauthn/authenticator_confirm_delete.html:16
+#: app/templates/mfa/webauthn/authenticator_list.html:60
+#: app/templates/socialaccount/connections.html:40
+msgid "Remove"
+msgstr "Eliminar"
+
+#: app/templates/account/email.html:59
+msgid "Add Email Address"
+msgstr "Agregar Dirección de Correo Electrónico"
+
+#: app/templates/account/email.html:70
+msgid "Add Email"
+msgstr "Agregar Correo Electrónico"
+
+#: app/templates/account/email.html:80
+msgid "Do you really want to remove the selected email address?"
+msgstr ""
+"¿Realmente quieres eliminar la dirección de correo electrónico seleccionada?"
+
+#: app/templates/account/email/account_already_exists_message.txt:4
+#, fuzzy, python-format
+#| msgid ""
+#| "You are receiving this email because you or someone else tried to signup "
+#| "for an\n"
+#| "account using email address:\n"
+#| "\n"
+#| "%(email)s\n"
+#| "\n"
+#| "However, an account using that email address already exists.  In case you "
+#| "have\n"
+#| "forgotten about this, please use the password forgotten procedure to "
+#| "recover\n"
+#| "your account:\n"
+#| "\n"
+#| "%(password_reset_url)s"
+msgid ""
+"You are receiving this email because you or someone else tried to signup for "
+"an\n"
+"account using email address:\n"
+"\n"
+"%(email)s\n"
+"\n"
+"However, an account using that email address already exists.  In case you "
+"have\n"
+"forgotten about this, please use the password forgotten procedure to "
+"recover\n"
+"your account:\n"
+"\n"
+"%(password_reset_url)s"
+msgstr ""
+"Estás recibiendo este correo electrónico porque tú o alguien más intentó "
+"registrar una\n"
+"cuenta usando la dirección de correo electrónico:\n"
+"\n"
+"%(email)s\n"
+"\n"
+"Sin embargo, ya existe una cuenta usando esa dirección de correo "
+"electrónico. En caso de que lo hayas\n"
+"olvidado, por favor usa el procedimiento de contraseña olvidada para "
+"recuperar\n"
+"tu cuenta:\n"
+"\n"
+"%(password_reset_url)s"
+
+#: app/templates/account/email/account_already_exists_subject.txt:3
+msgid "Account Already Exists"
+msgstr "La Cuenta Ya Existe"
+
+#: app/templates/account/email/base_message.txt:1
+#, python-format
+msgid "Hello from %(site_name)s!"
+msgstr "¡Hola desde %(site_name)s!"
+
+#: app/templates/account/email/base_message.txt:5
+#, python-format
+msgid ""
+"Thank you for using %(site_name)s!\n"
+"%(site_domain)s"
+msgstr ""
+"¡Gracias por usar %(site_name)s!\n"
+"%(site_domain)s"
+
+#: app/templates/account/email/base_notification.txt:5
+msgid ""
+"You are receiving this mail because the following change was made to your "
+"account:"
+msgstr ""
+"Estás recibiendo este correo porque se realizó el siguiente cambio en tu "
+"cuenta:"
+
+#: app/templates/account/email/base_notification.txt:10
+#, python-format
+msgid ""
+"If you do not recognize this change then please take proper security "
+"precautions immediately. The change to your account originates from:\n"
+"\n"
+"- IP address: %(ip)s\n"
+"- Browser: %(user_agent)s\n"
+"- Date: %(timestamp)s"
+msgstr ""
+"Si no reconoces este cambio, por favor toma las precauciones de seguridad "
+"apropiadas inmediatamente. El cambio a tu cuenta se originó desde:\n"
+"\n"
+"- Dirección IP: %(ip)s\n"
+"- Navegador: %(user_agent)s\n"
+"- Fecha: %(timestamp)s"
+
+#: app/templates/account/email/email_changed_message.txt:4
+#, python-format
+msgid "Your email has been changed from %(from_email)s to %(to_email)s."
+msgstr ""
+"Tu correo electrónico ha sido cambiado de %(from_email)s a %(to_email)s."
+
+#: app/templates/account/email/email_changed_subject.txt:3
+msgid "Email Changed"
+msgstr "Correo Electrónico Cambiado"
+
+#: app/templates/account/email/email_confirm_message.txt:4
+msgid "Your email has been confirmed."
+msgstr "Tu correo electrónico ha sido confirmado."
+
+#: app/templates/account/email/email_confirm_subject.txt:3
+msgid "Email Confirmation"
+msgstr "Confirmación de Correo Electrónico"
+
+#: app/templates/account/email/email_confirmation_message.txt:5
+#, python-format
+msgid ""
+"You're receiving this email because user %(user_display)s has given your "
+"email address to register an account on %(site_domain)s."
+msgstr ""
+"Estás recibiendo este correo electrónico porque el usuario %(user_display)s "
+"ha proporcionado tu dirección de correo electrónico para registrar una "
+"cuenta en %(site_domain)s."
+
+#: app/templates/account/email/email_confirmation_message.txt:7
+msgid ""
+"Your email verification code is listed below. Please enter it in your open "
+"browser window."
+msgstr ""
+"Tu código de verificación de correo electrónico se encuentra a continuación. "
+"Por favor, ingrésalo en la ventana de tu navegador abierta."
+
+#: app/templates/account/email/email_confirmation_message.txt:9
+#, python-format
+msgid "To confirm this is correct, go to %(activate_url)s"
+msgstr "Para confirmar que esto es correcto, ve a %(activate_url)s"
+
+#: app/templates/account/email/email_confirmation_subject.txt:3
+msgid "Please Confirm Your Email Address"
+msgstr "Por Favor Confirma Tu Dirección de Correo Electrónico"
+
+#: app/templates/account/email/email_deleted_message.txt:4
+#, python-format
+msgid "Email address %(deleted_email)s has been removed from your account."
+msgstr ""
+"La dirección de correo electrónico %(deleted_email)s ha sido eliminada de tu "
+"cuenta."
+
+#: app/templates/account/email/email_deleted_subject.txt:3
+msgid "Email Removed"
+msgstr "Correo Electrónico Eliminado"
+
+#: app/templates/account/email/login_code_message.txt:5
+msgid ""
+"Your sign-in code is listed below. Please enter it in your open browser "
+"window."
+msgstr ""
+"Tu código de inicio de sesión se encuentra a continuación. Por favor, "
+"ingrésalo en la ventana de tu navegador abierta."
+
+#: app/templates/account/email/login_code_message.txt:9
+#: app/templates/account/email/password_reset_code_message.txt:9
+#: app/templates/account/email/unknown_account_message.txt:6
+msgid "This mail can be safely ignored if you did not initiate this action."
+msgstr ""
+"Este correo puede ser ignorado de forma segura si no iniciaste esta acción."
+
+#: app/templates/account/email/login_code_subject.txt:3
+msgid "Sign-In Code"
+msgstr "Código de Inicio de Sesión"
+
+#: app/templates/account/email/password_changed_message.txt:4
+msgid "Your password has been changed."
+msgstr "Tu contraseña ha sido cambiada."
+
+#: app/templates/account/email/password_changed_subject.txt:3
+msgid "Password Changed"
+msgstr "Contraseña Cambiada"
+
+#: app/templates/account/email/password_reset_code_message.txt:5
+msgid ""
+"Your password reset code is listed below. Please enter it in your open "
+"browser window."
+msgstr ""
+"Tu código de restablecimiento de contraseña se encuentra a continuación. Por "
+"favor, ingrésalo en la ventana de tu navegador abierta."
+
+#: app/templates/account/email/password_reset_code_subject.txt:3
+msgid "Password Reset Code"
+msgstr "Código de Restablecimiento de Contraseña"
+
+#: app/templates/account/email/password_reset_key_message.txt:4
+msgid ""
+"You're receiving this email because you or someone else has requested a "
+"password reset for your user account.\n"
+"It can be safely ignored if you did not request a password reset. Click the "
+"link below to reset your password."
+msgstr ""
+"Estás recibiendo este correo electrónico porque tú o alguien más ha "
+"solicitado un restablecimiento de contraseña para tu cuenta de usuario.\n"
+"Puede ser ignorado de forma segura si no solicitaste un restablecimiento de "
+"contraseña. Haz clic en el enlace a continuación para restablecer tu "
+"contraseña."
+
+#: app/templates/account/email/password_reset_key_message.txt:9
+#, python-format
+msgid "In case you forgot, your username is %(username)s."
+msgstr ""
+"En caso de que lo hayas olvidado, tu nombre de usuario es %(username)s."
+
+#: app/templates/account/email/password_reset_key_subject.txt:3
+msgid "Password Reset Email"
+msgstr "Correo Electrónico de Restablecimiento de Contraseña"
+
+#: app/templates/account/email/password_reset_message.txt:4
+msgid "Your password has been reset."
+msgstr "Tu contraseña ha sido restablecida."
+
+#: app/templates/account/email/password_set_message.txt:4
+msgid "Your password has been set."
+msgstr "Tu contraseña ha sido establecida."
+
+#: app/templates/account/email/password_set_subject.txt:3
+msgid "Password Set"
+msgstr "Contraseña Establecida"
+
+#: app/templates/account/email/unknown_account_message.txt:4
+#, python-format
+msgid ""
+"You are receiving this email because you, or someone else, tried to access "
+"an account with email %(email)s. However, we do not have any record of such "
+"an account in our database."
+msgstr ""
+"Estás recibiendo este correo electrónico porque tú, o alguien más, intentó "
+"acceder a una cuenta con el correo electrónico %(email)s. Sin embargo, no "
+"tenemos ningún registro de dicha cuenta en nuestra base de datos."
+
+#: app/templates/account/email/unknown_account_message.txt:8
+msgid "If it was you, you can sign up for an account using the link below."
+msgstr ""
+"Si fuiste tú, puedes registrarte para obtener una cuenta usando el enlace a "
+"continuación."
+
+#: app/templates/account/email/unknown_account_subject.txt:3
+msgid "Unknown Account"
+msgstr "Cuenta Desconocida"
+
+#: app/templates/account/email_change.html:5
+#: app/templates/account/email_change.html:9
+msgid "Email Address"
+msgstr "Dirección de Correo Electrónico"
+
+#: app/templates/account/email_change.html:21
+#: app/templates/account/email_change.html:29
+msgid "Current email"
+msgstr "Correo electrónico actual"
+
+#: app/templates/account/email_change.html:31
+msgid "Changing to"
+msgstr "Cambiando a"
+
+#: app/templates/account/email_change.html:35
+msgid "Your email address is still pending verification."
+msgstr "Tu dirección de correo electrónico aún está pendiente de verificación."
+
+#: app/templates/account/email_change.html:41
+msgid "Cancel Change"
+msgstr "Cancelar Cambio"
+
+#: app/templates/account/email_change.html:49
+#: app/templates/account/phone_change.html:32
+msgid "Change to"
+msgstr "Cambiar a"
+
+#: app/templates/account/email_change.html:55
+msgid "Change Email"
+msgstr "Cambiar Correo Electrónico"
+
+#: app/templates/account/email_confirm.html:6
+#: app/templates/account/email_confirm.html:10
+msgid "Confirm Email Address"
+msgstr "Confirmar Dirección de Correo Electrónico"
+
+#: app/templates/account/email_confirm.html:16
+#, python-format
+msgid ""
+"Please confirm that <a href=\"mailto:%(email)s\">%(email)s</a> is an email "
+"address for user %(user_display)s."
+msgstr ""
+"Por favor, confirma que <a href=\"mailto:%(email)s\">%(email)s</a> es una "
+"dirección de correo electrónico para el usuario %(user_display)s."
+
+#: app/templates/account/email_confirm.html:30
+#: app/templates/account/messages/email_confirmation_failed.txt:2
+#, python-format
+msgid ""
+"Unable to confirm %(email)s because it is already confirmed by a different "
+"account."
+msgstr ""
+"No se puede confirmar %(email)s porque ya ha sido confirmado por una cuenta "
+"diferente."
+
+#: app/templates/account/email_confirm.html:36
+#, python-format
+msgid ""
+"This email confirmation link expired or is invalid. Please <a "
+"href=\"%(email_url)s\">issue a new email confirmation request</a>."
+msgstr ""
+"Este enlace de confirmación de correo electrónico expiró o no es válido. Por "
+"favor, <a href=\"%(email_url)s\">emite una nueva solicitud de confirmación "
+"de correo electrónico</a>."
+
+#: app/templates/account/login.html:20
+#, python-format
+msgid ""
+"If you have not created an account yet, then please %(link)ssign "
+"up%(end_link)s first."
+msgstr ""
+"Si aún no has creado una cuenta, por favor %(link)sregístrate%(end_link)s "
+"primero."
+
+#: app/templates/account/login.html:44
+msgid "Sign in with a passkey"
+msgstr "Iniciar sesión con una clave de acceso"
+
+#: app/templates/account/login.html:49
+#: app/templates/account/request_login_code.html:9
+msgid "Send me a sign-in code"
+msgstr "Envíame un código de inicio de sesión"
+
+#: app/templates/account/logout.html:4 app/templates/account/logout.html:8
+#: app/templates/account/logout.html:21 app/templates/idp/oidc/logout.html:4
+#: app/templates/idp/oidc/logout.html:8 app/templates/idp/oidc/logout.html:21
+#: app/templates/usersessions/usersession_list.html:76
+msgid "Sign Out"
+msgstr "Cerrar Sesión"
+
+#: app/templates/account/logout.html:11 app/templates/idp/oidc/logout.html:11
+msgid "Are you sure you want to sign out?"
+msgstr "¿Estás seguro de que quieres cerrar sesión?"
+
+#: app/templates/account/messages/cannot_delete_primary_email.txt:2
+#, python-format
+msgid "You cannot remove your primary email address (%(email)s)."
+msgstr ""
+"No puedes eliminar tu dirección de correo electrónico principal (%(email)s)."
+
+#: app/templates/account/messages/email_confirmation_sent.txt:2
+#, python-format
+msgid "Confirmation email sent to %(email)s."
+msgstr "Correo electrónico de confirmación enviado a %(email)s."
+
+#: app/templates/account/messages/email_confirmed.txt:2
+#, python-format
+msgid "You have confirmed %(email)s."
+msgstr "Has confirmado %(email)s."
+
+#: app/templates/account/messages/email_deleted.txt:2
+#, python-format
+msgid "Removed email address %(email)s."
+msgstr "Dirección de correo electrónico %(email)s eliminada."
+
+#: app/templates/account/messages/logged_in.txt:4
+#, python-format
+msgid "Successfully signed in as %(name)s."
+msgstr "Sesión iniciada exitosamente como %(name)s."
+
+#: app/templates/account/messages/logged_out.txt:2
+msgid "You have signed out."
+msgstr "Has cerrado sesión."
+
+#: app/templates/account/messages/login_code_sent.txt:2
+#, python-format
+msgid "A sign-in code has been sent to %(recipient)s."
+msgstr "Se ha enviado un código de inicio de sesión a %(recipient)s."
+
+#: app/templates/account/messages/password_changed.txt:2
+msgid "Password successfully changed."
+msgstr "Contraseña cambiada exitosamente."
+
+#: app/templates/account/messages/password_set.txt:2
+msgid "Password successfully set."
+msgstr "Contraseña establecida exitosamente."
+
+#: app/templates/account/messages/phone_verification_sent.txt:2
+#, python-format
+msgid "A verification code has been sent to %(phone)s."
+msgstr "Se ha enviado un código de verificación a %(phone)s."
+
+#: app/templates/account/messages/phone_verified.txt:2
+#, python-format
+msgid "You have verified phone number %(phone)s."
+msgstr "Has verificado el número de teléfono %(phone)s."
+
+#: app/templates/account/messages/primary_email_set.txt:2
+msgid "Primary email address set."
+msgstr "Dirección de correo electrónico principal establecida."
+
+#: app/templates/account/messages/unverified_primary_email.txt:2
+msgid "Your primary email address must be verified."
+msgstr "Tu dirección de correo electrónico principal debe ser verificada."
+
+#: app/templates/account/password_change.html:4
+#: app/templates/account/password_change.html:8
+#: app/templates/account/password_change.html:20
+#: app/templates/account/password_reset_from_key.html:5
+#: app/templates/account/password_reset_from_key.html:12
+#: app/templates/account/password_reset_from_key.html:30
+#: app/templates/account/password_reset_from_key_done.html:5
+#: app/templates/account/password_reset_from_key_done.html:9
+msgid "Change Password"
+msgstr "Cambiar Contraseña"
+
+#: app/templates/account/password_change.html:22
+msgid "Forgot Password?"
+msgstr "¿Olvidaste la Contraseña?"
+
+#: app/templates/account/password_reset.html:14
+msgid ""
+"Forgotten your password? Enter your email address below, and we'll send you "
+"an email allowing you to reset it."
+msgstr ""
+"¿Olvidaste tu contraseña? Ingresa tu dirección de correo electrónico a "
+"continuación y te enviaremos un correo que te permitirá restablecerla."
+
+#: app/templates/account/password_reset.html:26
+msgid "Reset My Password"
+msgstr "Restablecer Mi Contraseña"
+
+#: app/templates/account/password_reset.html:31
+msgid "Please contact us if you have any trouble resetting your password."
+msgstr ""
+"Por favor contáctanos si tienes algún problema para restablecer tu "
+"contraseña."
+
+#: app/templates/account/password_reset_done.html:16
+msgid ""
+"We have sent you an email. If you have not received it please check your "
+"spam folder. Otherwise contact us if you do not receive it in a few minutes."
+msgstr ""
+"Te hemos enviado un correo electrónico. Si no lo has recibido, revisa tu "
+"carpeta de spam. De lo contrario, contáctanos si no lo recibes en unos "
+"minutos."
+
+#: app/templates/account/password_reset_from_key.html:10
+msgid "Bad Token"
+msgstr "Token Inválido"
+
+#: app/templates/account/password_reset_from_key.html:18
+#, fuzzy, python-format
+#| msgid ""
+#| "The password reset link was invalid, possibly because it has already been "
+#| "used.  Please request a <a href=\"%(passwd_reset_url)s\">new password "
+#| "reset</a>."
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used.  Please request a <a href=\"%(passwd_reset_url)s\">new password reset</"
+"a>."
+msgstr ""
+"El enlace de restablecimiento de contraseña no era válido, posiblemente "
+"porque ya ha sido utilizado.  Por favor, solicita un <a "
+"href=\"%(passwd_reset_url)s\">nuevo restablecimiento de contraseña</a>."
+
+#: app/templates/account/password_reset_from_key_done.html:12
+msgid "Your password is now changed."
+msgstr "Tu contraseña ha sido cambiada."
+
+#: app/templates/account/password_set.html:5
+#: app/templates/account/password_set.html:9
+#: app/templates/account/password_set.html:21
+msgid "Set Password"
+msgstr "Establecer Contraseña"
+
+#: app/templates/account/phone_change.html:5
+#: app/templates/account/phone_change.html:9
+msgid "Change Phone"
+msgstr "Cambiar Teléfono"
+
+#: app/templates/account/phone_change.html:18
+msgid "Current phone"
+msgstr "Teléfono actual"
+
+#: app/templates/account/phone_change.html:22
+msgid "Your phone number is still pending verification."
+msgstr "Tu número de teléfono aún está pendiente de verificación."
+
+#: app/templates/account/phone_change.html:38
+msgctxt "action"
+msgid "Change Phone"
+msgstr "Cambiar Teléfono"
+
+#: app/templates/account/reauthenticate.html:6
+msgid "Enter your password:"
+msgstr "Ingresa tu contraseña:"
+
+#: app/templates/account/request_login_code.html:12
+msgid "You will receive a special code for a password-free sign-in."
+msgstr "Recibirás un código especial para un inicio de sesión sin contraseña."
+
+#: app/templates/account/request_login_code.html:24
+msgid "Request Code"
+msgstr "Solicitar Código"
+
+#: app/templates/account/request_login_code.html:30
+msgid "Other sign-in options"
+msgstr "Otras opciones de inicio de sesión"
+
+#: app/templates/account/signup.html:4
+#: app/templates/account/signup_by_passkey.html:4
+#: app/templates/socialaccount/signup.html:5
+msgid "Signup"
+msgstr "Registro"
+
+#: app/templates/account/signup.html:9 app/templates/account/signup.html:31
+#: app/templates/account/signup_by_passkey.html:29
+#: app/templates/socialaccount/signup.html:9
+#: app/templates/socialaccount/signup.html:25
+msgid "Sign Up"
+msgstr "Registrarse"
+
+#: app/templates/account/signup.html:18
+#: app/templates/account/signup_by_passkey.html:17
+#, python-format
+msgid "Already have an account? Then please %(link)ssign in%(end_link)s."
+msgstr ""
+"¿Ya tienes una cuenta? Entonces por favor %(link)sinicia sesión%(end_link)s."
+
+#: app/templates/account/signup.html:40
+msgid "Sign up using a passkey"
+msgstr "Registrarse usando una clave de acceso"
+
+#: app/templates/account/signup_by_passkey.html:8
+msgid "Passkey Sign Up"
+msgstr "Registro con Clave de Acceso"
+
+#: app/templates/account/signup_by_passkey.html:36
+msgid "Other options"
+msgstr "Otras opciones"
+
+#: app/templates/account/signup_closed.html:5
+#: app/templates/account/signup_closed.html:9
+msgid "Sign Up Closed"
+msgstr "Registro Cerrado"
+
+#: app/templates/account/signup_closed.html:12
+msgid "We are sorry, but the sign up is currently closed."
+msgstr "Lo sentimos, pero el registro está cerrado actualmente."
+
+#: app/templates/account/snippets/already_logged_in.html:7
+msgid "Note"
+msgstr "Nota"
+
+#: app/templates/account/snippets/already_logged_in.html:7
+#, python-format
+msgid "You are already logged in as %(user_display)s."
+msgstr "Ya has iniciado sesión como %(user_display)s."
+
+#: app/templates/account/snippets/warn_no_email.html:3
+msgid "Warning:"
+msgstr "Advertencia:"
+
+#: app/templates/account/snippets/warn_no_email.html:3
+msgid ""
+"You currently do not have any email address set up. You should really add an "
+"email address so you can receive notifications, reset your password, etc."
+msgstr ""
+"Actualmente no tienes ninguna dirección de correo electrónico configurada. "
+"Realmente deberías agregar una dirección de correo electrónico para que "
+"puedas recibir notificaciones, restablecer tu contraseña, etc."
+
+#: app/templates/account/verification_sent.html:5
+#: app/templates/account/verification_sent.html:9
+#: app/templates/account/verified_email_required.html:5
+#: app/templates/account/verified_email_required.html:9
+msgid "Verify Your Email Address"
+msgstr "Verifica Tu Dirección de Correo Electrónico"
+
+#: app/templates/account/verification_sent.html:12
+msgid ""
+"We have sent an email to you for verification. Follow the link provided to "
+"finalize the signup process. If you do not see the verification email in "
+"your main inbox, check your spam folder. Please contact us if you do not "
+"receive the verification email within a few minutes."
+msgstr ""
+"Te hemos enviado un correo electrónico para verificación. Sigue el enlace "
+"proporcionado para finalizar el proceso de registro. Si no ves el correo "
+"electrónico de verificación en tu bandeja de entrada principal, revisa tu "
+"carpeta de spam. Por favor contáctanos si no recibes el correo electrónico "
+"de verificación en unos minutos."
+
+#: app/templates/account/verified_email_required.html:13
+msgid ""
+"This part of the site requires us to verify that\n"
+"you are who you claim to be. For this purpose, we require that you\n"
+"verify ownership of your email address. "
+msgstr ""
+"Esta parte del sitio requiere que verifiquemos que\n"
+"eres quien dices ser. Para este propósito, requerimos que\n"
+"verifiques la propiedad de tu dirección de correo electrónico. "
+
+#: app/templates/account/verified_email_required.html:18
+msgid ""
+"We have sent an email to you for\n"
+"verification. Please click on the link inside that email. If you do not see "
+"the verification email in your main inbox, check your spam folder. "
+"Otherwise\n"
+"contact us if you do not receive it within a few minutes."
+msgstr ""
+"Te hemos enviado un correo electrónico para\n"
+"verificación. Por favor, haz clic en el enlace dentro de ese correo. Si no "
+"ves el correo electrónico de verificación en tu bandeja de entrada "
+"principal, revisa tu carpeta de spam. De lo contrario,\n"
+"contáctanos si no lo recibes en unos minutos."
+
+#: app/templates/account/verified_email_required.html:23
+#, python-format
+msgid ""
+"<strong>Note:</strong> you can still <a href=\"%(email_url)s\">change your "
+"email address</a>."
+msgstr ""
+"<strong>Nota:</strong> aún puedes <a href=\"%(email_url)s\">cambiar tu "
+"dirección de correo electrónico</a>."
+
+#: app/templates/app/base.html:35 app/templates/app/base.html:61
+msgid "Grader"
+msgstr "Calificador"
+
+#: app/templates/app/base.html:42 app/templates/app/base.html:68
+msgid "Read Page"
+msgstr "Leer Página"
+
+#: app/templates/app/base.html:45 app/templates/app/base.html:71
+msgid "Home"
+msgstr "Inicio"
+
+#: app/templates/app/base.html:48 app/templates/app/dashboard.html:7
+msgid "Dashboard"
+msgstr "Panel de Control"
+
+#: app/templates/app/base.html:51 app/templates/app/progress.html:10
+msgid "Student Progress"
+msgstr "Progreso del Estudiante"
+
+#: app/templates/app/base.html:54
+msgid "Logout"
+msgstr "Cerrar Sesión"
+
+#: app/templates/app/base.html:74 app/templates/app/home.html:7
+msgid "Get Started"
+msgstr "Empezar"
+
+#: app/templates/app/base.html:89
+msgid "About Us"
+msgstr "Acerca de Nosotros"
+
+#: app/templates/app/base.html:91
+msgid "Mission"
+msgstr "Misión"
+
+#: app/templates/app/base.html:92
+msgid "FAQs"
+msgstr "Preguntas Frecuentes"
+
+#: app/templates/app/base.html:93
+msgid "Terms of Service"
+msgstr "Términos de Servicio"
+
+#: app/templates/app/base.html:94
+msgid "Sources"
+msgstr "Fuentes"
+
+#: app/templates/app/base.html:95
+msgid "Privacy Policy"
+msgstr "Política de Privacidad"
+
+#: app/templates/app/base.html:101
+msgid "Contact Us"
+msgstr "Contáctanos"
+
+#: app/templates/app/base.html:102
+msgid "Phone:"
+msgstr "Teléfono:"
+
+#: app/templates/app/base.html:103
+msgid "Support Form"
+msgstr "Formulario de Soporte"
+
+#: app/templates/app/base.html:108
+msgid "Social Media"
+msgstr "Redes Sociales"
+
+#: app/templates/app/dashboard.html:8
+msgid "Manage your courses and assignments efficiently"
+msgstr "Gestiona tus cursos y tareas de manera eficiente"
+
+#: app/templates/app/dashboard.html:19
+msgid "Saved Rubrics"
+msgstr "Rúbricas Guardadas"
+
+#: app/templates/app/dashboard.html:21
+msgid "Create New Rubric"
+msgstr "Crear Nueva Rúbrica"
+
+#: app/templates/app/dashboard.html:84
+msgid "Rubric Title"
+msgstr "Título de la Rúbrica"
+
+#: app/templates/app/dashboard.html:89
+msgid "Rubric Description"
+msgstr "Descripción de la Rúbrica"
+
+#: app/templates/app/dashboard.html:94
+msgid "Strictness"
+msgstr "Rigurosidad"
+
+#: app/templates/app/dashboard.html:98
+msgid "Grade Level"
+msgstr "Nivel de Grado"
+
+#: app/templates/app/grade_result.html:11
+msgid "Assignment Grading Results"
+msgstr "Resultados de Calificación de la Tarea"
+
+#: app/templates/app/grade_result.html:17 app/templates/app/progress.html:23
+msgid "Student:"
+msgstr "Estudiante:"
+
+#: app/templates/app/grade_result.html:18
+msgid "Rubric:"
+msgstr "Rúbrica:"
+
+#: app/templates/app/grade_result.html:21
+msgid "Strictness Level:"
+msgstr "Nivel de Rigurosidad:"
+
+#: app/templates/app/grade_result.html:22
+msgid "Grade Level:"
+msgstr "Nivel de Grado:"
+
+#: app/templates/app/grade_result.html:23
+msgid "Total Score:"
+msgstr "Puntuación Total:"
+
+#: app/templates/app/home.html:4 app/templates/app/home_logged.html:5
+msgid "Welcome to Grader!"
+msgstr "¡Bienvenido a Grader!"
+
+#: app/templates/app/home.html:5 app/templates/app/home_logged.html:6
+msgid "Your one-stop solution for automated grading and feedback."
+msgstr ""
+"Tu solución integral para la calificación y retroalimentación automatizada."
+
+#: app/templates/app/home_logged.html:8
+#, fuzzy
+#| msgid "Dashboard"
+msgid "Go to Dashboard"
+msgstr "Panel de Control"
+
+#: app/templates/app/progress.html:14
+msgid "Subject:"
+msgstr "Materia:"
+
+#: app/templates/app/progress.html:16
+msgid "Select a Subject"
+msgstr "Selecciona una Materia"
+
+#: app/templates/app/progress.html:25
+msgid "Select a Student"
+msgstr "Selecciona un Estudiante"
+
+#: app/templates/app/progress.html:26
+msgid "Class Average"
+msgstr "Promedio de la Clase"
+
+#: app/templates/idp/oidc/authorization_form.html:5
+#: app/templates/idp/oidc/authorization_form.html:9
+#: app/templates/idp/oidc/authorization_form.html:23
+#: app/templates/idp/oidc/device_authorization_code_form.html:5
+#: app/templates/idp/oidc/device_authorization_confirm_form.html:5
+#: app/templates/idp/oidc/device_authorization_confirmed.html:5
+#: app/templates/idp/oidc/device_authorization_denied.html:5
+msgid "Authorize"
+msgstr "Autorizar"
+
+#: app/templates/idp/oidc/authorization_form.html:12
+#, python-format
+msgid "%(client_name)s wants to access your %(site_name)s account."
+msgstr "%(client_name)s quiere acceder a tu cuenta de %(site_name)s."
+
+#: app/templates/idp/oidc/device_authorization_code_form.html:9
+msgid "Enter Device Code"
+msgstr "Ingresar Código del Dispositivo"
+
+#: app/templates/idp/oidc/device_authorization_code_form.html:12
+msgid "Enter the code displayed on your device."
+msgstr "Ingresa el código que se muestra en tu dispositivo."
+
+#: app/templates/idp/oidc/device_authorization_code_form.html:21
+#: app/templates/socialaccount/login.html:27
+#: app/templates/socialaccount/login_redirect.html:10
+msgid "Continue"
+msgstr "Continuar"
+
+#: app/templates/idp/oidc/device_authorization_confirm_form.html:9
+msgid "Confirm Device"
+msgstr "Confirmar Dispositivo"
+
+#: app/templates/idp/oidc/device_authorization_confirm_form.html:12
+#, python-format
+msgid ""
+"Please confirm the code shown on your %(client_name)s to authorize this "
+"device."
+msgstr ""
+"Por favor, confirma el código que se muestra en tu %(client_name)s para "
+"autorizar este dispositivo."
+
+#: app/templates/idp/oidc/device_authorization_confirm_form.html:16
+msgid "Code"
+msgstr "Código"
+
+#: app/templates/idp/oidc/device_authorization_confirm_form.html:29
+msgid "Deny"
+msgstr "Denegar"
+
+#: app/templates/idp/oidc/device_authorization_confirmed.html:9
+msgid "Device Authorized"
+msgstr "Dispositivo Autorizado"
+
+#: app/templates/idp/oidc/device_authorization_confirmed.html:12
+#, python-format
+msgid "You successfully authorized your %(client_name)s device."
+msgstr "Autorizaste exitosamente tu dispositivo %(client_name)s."
+
+#: app/templates/idp/oidc/device_authorization_denied.html:9
+msgid "Device Denied"
+msgstr "Dispositivo Denegado"
+
+#: app/templates/idp/oidc/device_authorization_denied.html:12
+#, python-format
+msgid "Authorization for your %(client_name)s device has been denied."
+msgstr "La autorización para tu dispositivo %(client_name)s ha sido denegada."
+
+#: app/templates/idp/oidc/error.html:5 app/templates/idp/oidc/error.html:9
+msgid "Error"
+msgstr "Error"
+
+#: app/templates/idp/oidc/logout.html:24
+msgid "Stay Signed In"
+msgstr "Permanecer con Sesión Iniciada"
+
+#: app/templates/mfa/authenticate.html:10 app/templates/mfa/index.html:5
+#: app/templates/mfa/index.html:9
+msgid "Two-Factor Authentication"
+msgstr "Autenticación de Dos Factores"
+
+#: app/templates/mfa/authenticate.html:13
+msgid ""
+"Your account is protected by two-factor authentication. Please enter an "
+"authenticator code:"
+msgstr ""
+"Tu cuenta está protegida por la autenticación de dos factores. Por favor, "
+"ingresa un código del autenticador:"
+
+#: app/templates/mfa/authenticate.html:41
+#: app/templates/mfa/webauthn/reauthenticate.html:15
+msgid "Use a security key"
+msgstr "Usar una llave de seguridad"
+
+#: app/templates/mfa/email/recovery_codes_generated_message.txt:4
+msgid ""
+"A new set of Two-Factor Authentication recovery codes has been generated."
+msgstr ""
+"Se ha generado un nuevo conjunto de códigos de recuperación de Autenticación "
+"de Dos Factores."
+
+#: app/templates/mfa/email/recovery_codes_generated_subject.txt:3
+msgid "New Recovery Codes Generated"
+msgstr "Nuevos Códigos de Recuperación Generados"
+
+#: app/templates/mfa/email/totp_activated_message.txt:4
+#: app/templates/mfa/messages/totp_activated.txt:2
+msgid "Authenticator app activated."
+msgstr "Aplicación de autenticador activada."
+
+#: app/templates/mfa/email/totp_activated_subject.txt:3
+msgid "Authenticator App Activated"
+msgstr "Aplicación de Autenticador Activada"
+
+#: app/templates/mfa/email/totp_deactivated_message.txt:4
+#: app/templates/mfa/messages/totp_deactivated.txt:2
+msgid "Authenticator app deactivated."
+msgstr "Aplicación de autenticador desactivada."
+
+#: app/templates/mfa/email/totp_deactivated_subject.txt:3
+msgid "Authenticator App Deactivated"
+msgstr "Aplicación de Autenticador Desactivada"
+
+#: app/templates/mfa/email/webauthn_added_message.txt:4
+msgid "A new security key has been added."
+msgstr "Se ha añadido una nueva llave de seguridad."
+
+#: app/templates/mfa/email/webauthn_added_subject.txt:3
+msgid "Security Key Added"
+msgstr "Llave de Seguridad Añadida"
+
+#: app/templates/mfa/email/webauthn_removed_message.txt:4
+msgid "A security key has been removed."
+msgstr "Se ha eliminado una llave de seguridad."
+
+#: app/templates/mfa/email/webauthn_removed_subject.txt:3
+msgid "Security Key Removed"
+msgstr "Llave de Seguridad Eliminada"
+
+#: app/templates/mfa/index.html:14 app/templates/mfa/totp/base.html:4
+msgid "Authenticator App"
+msgstr "Aplicación de Autenticador"
+
+#: app/templates/mfa/index.html:19
+msgid "Authentication using an authenticator app is active."
+msgstr "La autenticación usando una aplicación de autenticador está activa."
+
+#: app/templates/mfa/index.html:23
+msgid "An authenticator app is not active."
+msgstr "Una aplicación de autenticador no está activa."
+
+#: app/templates/mfa/index.html:32
+#: app/templates/mfa/totp/deactivate_form.html:24
+msgid "Deactivate"
+msgstr "Desactivar"
+
+#: app/templates/mfa/index.html:36 app/templates/mfa/totp/activate_form.html:32
+msgid "Activate"
+msgstr "Activar"
+
+#: app/templates/mfa/index.html:45
+#: app/templates/mfa/webauthn/authenticator_list.html:8
+#: app/templates/mfa/webauthn/base.html:4
+msgid "Security Keys"
+msgstr "Llaves de Seguridad"
+
+#: app/templates/mfa/index.html:50
+#, python-format
+msgid "You have added %(count)s security key."
+msgid_plural "You have added %(count)s security keys."
+msgstr[0] "Has añadido %(count)s llave de seguridad."
+msgstr[1] "Has añadido %(count)s llaves de seguridad."
+
+#: app/templates/mfa/index.html:54
+#: app/templates/mfa/webauthn/authenticator_list.html:12
+msgid "No security keys have been added."
+msgstr "No se han añadido llaves de seguridad."
+
+#: app/templates/mfa/index.html:62
+msgid "Manage"
+msgstr "Administrar"
+
+#: app/templates/mfa/index.html:67 app/templates/mfa/webauthn/add_form.html:18
+#: app/templates/mfa/webauthn/authenticator_list.html:70
+msgid "Add"
+msgstr "Añadir"
+
+#: app/templates/mfa/index.html:77 app/templates/mfa/recovery_codes/base.html:4
+#: app/templates/mfa/recovery_codes/generate.html:6
+#: app/templates/mfa/recovery_codes/index.html:6
+msgid "Recovery Codes"
+msgstr "Códigos de Recuperación"
+
+#: app/templates/mfa/index.html:82
+#: app/templates/mfa/recovery_codes/index.html:9
+#, python-format
+msgid ""
+"There is %(unused_count)s out of %(total_count)s recovery codes available."
+msgid_plural ""
+"There are %(unused_count)s out of %(total_count)s recovery codes available."
+msgstr[0] ""
+"Hay %(unused_count)s código de recuperación disponible de %(total_count)s."
+msgstr[1] ""
+"Hay %(unused_count)s códigos de recuperación disponibles de %(total_count)s."
+
+#: app/templates/mfa/index.html:86
+msgid "No recovery codes set up."
+msgstr "No hay códigos de recuperación configurados."
+
+#: app/templates/mfa/index.html:96
+msgid "View"
+msgstr "Ver"
+
+#: app/templates/mfa/index.html:102
+msgid "Download"
+msgstr "Descargar"
+
+#: app/templates/mfa/index.html:110
+#: app/templates/mfa/recovery_codes/generate.html:29
+msgid "Generate"
+msgstr "Generar"
+
+#: app/templates/mfa/messages/recovery_codes_generated.txt:2
+msgid "A new set of recovery codes has been generated."
+msgstr "Se ha generado un nuevo conjunto de códigos de recuperación."
+
+#: app/templates/mfa/messages/webauthn_added.txt:2
+msgid "Security key added."
+msgstr "Llave de seguridad añadida."
+
+#: app/templates/mfa/messages/webauthn_removed.txt:2
+msgid "Security key removed."
+msgstr "Llave de seguridad eliminada."
+
+#: app/templates/mfa/reauthenticate.html:6
+msgid "Enter an authenticator code:"
+msgstr "Ingresa un código del autenticador:"
+
+#: app/templates/mfa/recovery_codes/generate.html:9
+msgid "You are about to generate a new set of recovery codes for your account."
+msgstr ""
+"Estás a punto de generar un nuevo conjunto de códigos de recuperación para "
+"tu cuenta."
+
+#: app/templates/mfa/recovery_codes/generate.html:11
+msgid "This action will invalidate your existing codes."
+msgstr "Esta acción invalidará tus códigos existentes."
+
+#: app/templates/mfa/recovery_codes/generate.html:13
+msgid "Are you sure?"
+msgstr "¿Estás seguro?"
+
+#: app/templates/mfa/recovery_codes/index.html:13
+msgid "Unused codes"
+msgstr "Códigos no utilizados"
+
+#: app/templates/mfa/recovery_codes/index.html:25
+msgid "Download codes"
+msgstr "Descargar códigos"
+
+#: app/templates/mfa/recovery_codes/index.html:30
+msgid "Generate new codes"
+msgstr "Generar nuevos códigos"
+
+#: app/templates/mfa/totp/activate_form.html:4
+#: app/templates/mfa/totp/activate_form.html:8
+msgid "Activate Authenticator App"
+msgstr "Activar Aplicación de Autenticador"
+
+#: app/templates/mfa/totp/activate_form.html:11
+msgid ""
+"To protect your account with two-factor authentication, scan the QR code "
+"below with your authenticator app. Then, input the verification code "
+"generated by the app below."
+msgstr ""
+"Para proteger tu cuenta con autenticación de dos factores, escanea el código "
+"QR a continuación con tu aplicación de autenticador. Luego, ingresa el "
+"código de verificación generado por la aplicación a continuación."
+
+#: app/templates/mfa/totp/activate_form.html:21
+msgid "Authenticator secret"
+msgstr "Secreto del autenticador"
+
+#: app/templates/mfa/totp/activate_form.html:24
+msgid ""
+"You can store this secret and use it to reinstall your authenticator app at "
+"a later time."
+msgstr ""
+"Puedes almacenar este secreto y usarlo para reinstalar tu aplicación de "
+"autenticador en un momento posterior."
+
+#: app/templates/mfa/totp/deactivate_form.html:5
+#: app/templates/mfa/totp/deactivate_form.html:9
+msgid "Deactivate Authenticator App"
+msgstr "Desactivar Aplicación de Autenticador"
+
+#: app/templates/mfa/totp/deactivate_form.html:12
+msgid ""
+"You are about to deactivate authenticator app based authentication. Are you "
+"sure?"
+msgstr ""
+"Estás a punto de desactivar la autenticación basada en la aplicación de "
+"autenticador. ¿Estás seguro?"
+
+#: app/templates/mfa/trust.html:4 app/templates/mfa/trust.html:8
+msgid "Trust this Browser?"
+msgstr "¿Confiar en este Navegador?"
+
+#: app/templates/mfa/trust.html:11
+msgid ""
+"If you choose to trust this browser, you will not be asked for a "
+"verification code the next time you sign in."
+msgstr ""
+"Si eliges confiar en este navegador, no se te pedirá un código de "
+"verificación la próxima vez que inicies sesión."
+
+#: app/templates/mfa/trust.html:23
+#, python-format
+msgid "Trust for %(period)s"
+msgstr "Confiar por %(period)s"
+
+#: app/templates/mfa/trust.html:26
+msgid "Don't Trust"
+msgstr "No Confiar"
+
+#: app/templates/mfa/webauthn/add_form.html:7
+msgid "Add Security Key"
+msgstr "Añadir Llave de Seguridad"
+
+#: app/templates/mfa/webauthn/authenticator_confirm_delete.html:6
+msgid "Remove Security Key"
+msgstr "Eliminar Llave de Seguridad"
+
+#: app/templates/mfa/webauthn/authenticator_confirm_delete.html:9
+msgid "Are you sure you want to remove this security key?"
+msgstr "¿Estás seguro de que quieres eliminar esta llave de seguridad?"
+
+#: app/templates/mfa/webauthn/authenticator_list.html:18
+msgid "Key"
+msgstr "Llave"
+
+#: app/templates/mfa/webauthn/authenticator_list.html:21
+msgid "Usage"
+msgstr "Uso"
+
+#: app/templates/mfa/webauthn/authenticator_list.html:33
+msgid "Passkey"
+msgstr "Clave de acceso"
+
+#: app/templates/mfa/webauthn/authenticator_list.html:37
+msgid "Security key"
+msgstr "Llave de seguridad"
+
+#: app/templates/mfa/webauthn/authenticator_list.html:40
+msgid "This key does not indicate whether it is a passkey."
+msgstr "Esta llave no indica si es una clave de acceso."
+
+#: app/templates/mfa/webauthn/authenticator_list.html:41
+msgid "Unspecified"
+msgstr "No especificado"
+
+#: app/templates/mfa/webauthn/authenticator_list.html:46
+#, python-format
+msgid "Added on %(created_at)s"
+msgstr "Añadida el %(created_at)s"
+
+#: app/templates/mfa/webauthn/authenticator_list.html:48
+#, python-format
+msgid "Last used %(last_used)s"
+msgstr "Último uso %(last_used)s"
+
+#: app/templates/mfa/webauthn/authenticator_list.html:56
+msgid "Edit"
+msgstr "Editar"
+
+#: app/templates/mfa/webauthn/edit_form.html:7
+msgid "Edit Security Key"
+msgstr "Editar clave de seguridad"
+
+#: app/templates/mfa/webauthn/edit_form.html:18
+msgid "Save"
+msgstr "Guardar"
+
+#: app/templates/mfa/webauthn/signup_form.html:7
+msgid "Create Passkey"
+msgstr "Crear clave de acceso"
+
+#: app/templates/mfa/webauthn/signup_form.html:10
+msgid ""
+"You are about to create a passkey for your account. As you can add "
+"additional keys later on, you can use a descriptive name to tell the keys "
+"apart."
+msgstr ""
+"Estás a punto de crear una clave de acceso para tu cuenta. Como puedes "
+"añadir claves adicionales más adelante, puedes usar un nombre descriptivo "
+"para distinguirlas."
+
+#: app/templates/mfa/webauthn/signup_form.html:21
+msgid "Create"
+msgstr "Crear"
+
+#: app/templates/mfa/webauthn/snippets/scripts.html:2
+msgid "This functionality requires JavaScript."
+msgstr "Esta funcionalidad requiere JavaScript."
+
+#: app/templates/socialaccount/authentication_error.html:5
+#: app/templates/socialaccount/authentication_error.html:9
+msgid "Third-Party Login Failure"
+msgstr "Fallo en el inicio de sesión de terceros"
+
+#: app/templates/socialaccount/authentication_error.html:12
+msgid ""
+"An error occurred while attempting to login via your third-party account."
+msgstr ""
+"Ocurrió un error al intentar iniciar sesión a través de tu cuenta de "
+"terceros."
+
+#: app/templates/socialaccount/connections.html:5
+#: app/templates/socialaccount/connections.html:9
+msgid "Account Connections"
+msgstr "Conexiones de cuenta"
+
+#: app/templates/socialaccount/connections.html:13
+msgid ""
+"You can sign in to your account using any of the following third-party "
+"accounts:"
+msgstr ""
+"Puedes iniciar sesión en tu cuenta utilizando cualquiera de las siguientes "
+"cuentas de terceros:"
+
+#: app/templates/socialaccount/connections.html:46
+msgid "You currently have no third-party accounts connected to this account."
+msgstr "Actualmente no tienes cuentas de terceros conectadas a esta cuenta."
+
+#: app/templates/socialaccount/connections.html:50
+msgid "Add a Third-Party Account"
+msgstr "Añadir una cuenta de terceros"
+
+#: app/templates/socialaccount/email/account_connected_message.txt:4
+#, python-format
+msgid ""
+"A third-party account from %(provider)s has been connected to your account."
+msgstr "Una cuenta de terceros de %(provider)s se ha conectado a tu cuenta."
+
+#: app/templates/socialaccount/email/account_connected_subject.txt:3
+msgid "Third-Party Account Connected"
+msgstr "Cuenta de terceros conectada"
+
+#: app/templates/socialaccount/email/account_disconnected_message.txt:4
+#, python-format
+msgid ""
+"A third-party account from %(provider)s has been disconnected from your "
+"account."
+msgstr ""
+"Una cuenta de terceros de %(provider)s se ha desconectado de tu cuenta."
+
+#: app/templates/socialaccount/email/account_disconnected_subject.txt:3
+msgid "Third-Party Account Disconnected"
+msgstr "Cuenta de terceros desconectada"
+
+#: app/templates/socialaccount/login.html:10
+#, python-format
+msgid "Connect %(provider)s"
+msgstr "Conectar %(provider)s"
+
+#: app/templates/socialaccount/login.html:13
+#, python-format
+msgid "You are about to connect a new third-party account from %(provider)s."
+msgstr ""
+"Estás a punto de conectar una nueva cuenta de terceros de %(provider)s."
+
+#: app/templates/socialaccount/login.html:17
+#, python-format
+msgid "Sign In Via %(provider)s"
+msgstr "Iniciar sesión a través de %(provider)s"
+
+#: app/templates/socialaccount/login.html:20
+#, python-format
+msgid "You are about to sign in using a third-party account from %(provider)s."
+msgstr ""
+"Estás a punto de iniciar sesión utilizando una cuenta de terceros de "
+"%(provider)s."
+
+#: app/templates/socialaccount/login_cancelled.html:5
+#: app/templates/socialaccount/login_cancelled.html:9
+msgid "Login Cancelled"
+msgstr "Inicio de sesión cancelado"
+
+#: app/templates/socialaccount/login_cancelled.html:13
+#, python-format
+msgid ""
+"You decided to cancel logging in to our site using one of your existing "
+"accounts. If this was a mistake, please proceed to <a "
+"href=\"%(login_url)s\">sign in</a>."
+msgstr ""
+"Decidiste cancelar el inicio de sesión en nuestro sitio utilizando una de "
+"tus cuentas existentes. Si fue un error, por favor procede a <a "
+"href=\"%(login_url)s\">iniciar sesión</a>."
+
+#: app/templates/socialaccount/messages/account_connected.txt:2
+msgid "The third-party account has been connected."
+msgstr "La cuenta de terceros ha sido conectada."
+
+#: app/templates/socialaccount/messages/account_connected_other.txt:2
+msgid "The third-party account is already connected to a different account."
+msgstr "La cuenta de terceros ya está conectada a una cuenta diferente."
+
+#: app/templates/socialaccount/messages/account_disconnected.txt:2
+msgid "The third-party account has been disconnected."
+msgstr "La cuenta de terceros ha sido desconectada."
+
+#: app/templates/socialaccount/signup.html:12
+#, python-format
+msgid ""
+"You are about to use your %(provider_name)s account to login to\n"
+"%(site_name)s. As a final step, please complete the following form:"
+msgstr ""
+"Estás a punto de usar tu cuenta de %(provider_name)s para iniciar sesión en\n"
+"%(site_name)s. Como paso final, por favor, completa el siguiente formulario:"
+
+#: app/templates/socialaccount/snippets/login.html:10
+msgid "Or use a third-party"
+msgstr "O usar un tercero"
+
+#: app/templates/usersessions/messages/sessions_logged_out.txt:2
+msgid "Signed out of all other sessions."
+msgstr "Se cerró la sesión en todas las demás sesiones."
+
+#: app/templates/usersessions/usersession_list.html:6
+#: app/templates/usersessions/usersession_list.html:10
+msgid "Sessions"
+msgstr "Sesiones"
+
+#: app/templates/usersessions/usersession_list.html:24
+msgid "Started At"
+msgstr "Iniciada el"
+
+#: app/templates/usersessions/usersession_list.html:27
+msgid "IP Address"
+msgstr "Dirección IP"
+
+#: app/templates/usersessions/usersession_list.html:30
+msgid "Browser"
+msgstr "Navegador"
+
+#: app/templates/usersessions/usersession_list.html:34
+msgid "Last seen at"
+msgstr "Vista por última vez en"
+
+#: app/templates/usersessions/usersession_list.html:59
+msgid "Current"
+msgstr "Actual"
+
+#: app/templates/usersessions/usersession_list.html:72
+msgid "Sign Out Other Sessions"
+msgstr "Cerrar sesión en otras sesiones"
+
+#: env/lib/python3.13/site-packages/bootstrap5/components.py:17
+#: env/lib/python3.13/site-packages/bootstrap5/templates/bootstrap5/form_errors.html:3
+#: env/lib/python3.13/site-packages/bootstrap5/templates/bootstrap5/messages.html:4
+msgid "close"
+msgstr "cerrar"
+
+#: env/lib/python3.13/site-packages/django/contrib/messages/apps.py:15
+msgid "Messages"
+msgstr "Mensajes"
+
+#: env/lib/python3.13/site-packages/django/contrib/sitemaps/apps.py:8
+msgid "Site Maps"
+msgstr "Mapas del sitio"
+
+#: env/lib/python3.13/site-packages/django/contrib/staticfiles/apps.py:9
+msgid "Static Files"
+msgstr "Archivos estáticos"
+
+#: env/lib/python3.13/site-packages/django/contrib/syndication/apps.py:7
+msgid "Syndication"
+msgstr "Sindicación"
+
+#. Translators: String used to replace omitted page numbers in elided page
+#. range generated by paginators, e.g. [1, 2, '…', 5, 6, 7, '…', 9, 10].
+#: env/lib/python3.13/site-packages/django/core/paginator.py:30
+msgid "…"
+msgstr "…"
+
+#: env/lib/python3.13/site-packages/django/core/paginator.py:50
+msgid "That page number is not an integer"
+msgstr "Ese número de página no es un entero"
+
+#: env/lib/python3.13/site-packages/django/core/paginator.py:52
+msgid "That page number is less than 1"
+msgstr "Ese número de página es menor que 1"
+
+#: env/lib/python3.13/site-packages/django/core/paginator.py:54
+msgid "That page contains no results"
+msgstr "Esa página no contiene resultados"
+
+#: env/lib/python3.13/site-packages/django/core/validators.py:22
+msgid "Enter a valid value."
+msgstr "Introduce un valor válido."
+
+#: env/lib/python3.13/site-packages/django/core/validators.py:104
+#: env/lib/python3.13/site-packages/django/forms/fields.py:752
+msgid "Enter a valid URL."
+msgstr "Introduce una URL válida."
+
+#: env/lib/python3.13/site-packages/django/core/validators.py:165
+msgid "Enter a valid integer."
+msgstr "Introduce un entero válido."
+
+#: env/lib/python3.13/site-packages/django/core/validators.py:176
+msgid "Enter a valid email address."
+msgstr "Introduce una dirección de correo electrónico válida."
+
+#. Translators: "letters" means latin letters: a-z and A-Z.
+#: env/lib/python3.13/site-packages/django/core/validators.py:259
+msgid ""
+"Enter a valid “slug” consisting of letters, numbers, underscores or hyphens."
+msgstr ""
+"Introduce un «slug» válido que contenga letras, números, guiones bajos o "
+"guiones."
+
+#: env/lib/python3.13/site-packages/django/core/validators.py:267
+msgid ""
+"Enter a valid “slug” consisting of Unicode letters, numbers, underscores, or "
+"hyphens."
+msgstr ""
+"Introduce un «slug» válido que contenga letras Unicode, números, guiones "
+"bajos o guiones."
+
+#: env/lib/python3.13/site-packages/django/core/validators.py:281
+#: env/lib/python3.13/site-packages/django/core/validators.py:289
+#: env/lib/python3.13/site-packages/django/core/validators.py:318
+msgid "Enter a valid IPv4 address."
+msgstr "Introduce una dirección IPv4 válida."
+
+#: env/lib/python3.13/site-packages/django/core/validators.py:298
+#: env/lib/python3.13/site-packages/django/core/validators.py:319
+msgid "Enter a valid IPv6 address."
+msgstr "Introduce una dirección IPv6 válida."
+
+#: env/lib/python3.13/site-packages/django/core/validators.py:310
+#: env/lib/python3.13/site-packages/django/core/validators.py:317
+msgid "Enter a valid IPv4 or IPv6 address."
+msgstr "Introduce una dirección IPv4 o IPv6 válida."
+
+#: env/lib/python3.13/site-packages/django/core/validators.py:353
+msgid "Enter only digits separated by commas."
+msgstr "Introduce solo dígitos separados por comas."
+
+#: env/lib/python3.13/site-packages/django/core/validators.py:359
+#, python-format
+msgid "Ensure this value is %(limit_value)s (it is %(show_value)s)."
+msgstr "Asegúrate de que este valor sea %(limit_value)s (es %(show_value)s)."
+
+#: env/lib/python3.13/site-packages/django/core/validators.py:394
+#, python-format
+msgid "Ensure this value is less than or equal to %(limit_value)s."
+msgstr "Asegúrate de que este valor sea menor o igual que %(limit_value)s."
+
+#: env/lib/python3.13/site-packages/django/core/validators.py:403
+#, python-format
+msgid "Ensure this value is greater than or equal to %(limit_value)s."
+msgstr "Asegúrate de que este valor sea mayor o igual que %(limit_value)s."
+
+#: env/lib/python3.13/site-packages/django/core/validators.py:412
+#, python-format
+msgid "Ensure this value is a multiple of step size %(limit_value)s."
+msgstr ""
+"Asegúrate de que este valor sea un múltiplo del tamaño de paso "
+"%(limit_value)s."
+
+#: env/lib/python3.13/site-packages/django/core/validators.py:422
+#, python-format
+msgid ""
+"Ensure this value has at least %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at least %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+"Asegúrate de que este valor tenga al menos %(limit_value)d carácter (tiene "
+"%(show_value)d)."
+msgstr[1] ""
+"Asegúrate de que este valor tenga al menos %(limit_value)d caracteres (tiene "
+"%(show_value)d)."
+
+#: env/lib/python3.13/site-packages/django/core/validators.py:440
+#, python-format
+msgid ""
+"Ensure this value has at most %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at most %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+"Asegúrate de que este valor tenga como máximo %(limit_value)d carácter "
+"(tiene %(show_value)d)."
+msgstr[1] ""
+"Asegúrate de que este valor tenga como máximo %(limit_value)d caracteres "
+"(tiene %(show_value)d)."
+
+#: env/lib/python3.13/site-packages/django/core/validators.py:463
+#: env/lib/python3.13/site-packages/django/forms/fields.py:347
+#: env/lib/python3.13/site-packages/django/forms/fields.py:386
+msgid "Enter a number."
+msgstr "Introduce un número."
+
+#: env/lib/python3.13/site-packages/django/core/validators.py:465
+#, python-format
+msgid "Ensure that there are no more than %(max)s digit in total."
+msgid_plural "Ensure that there are no more than %(max)s digits in total."
+msgstr[0] "Asegúrate de que no haya más de %(max)s dígito en total."
+msgstr[1] "Asegúrate de que no haya más de %(max)s dígitos en total."
+
+#: env/lib/python3.13/site-packages/django/core/validators.py:470
+#, python-format
+msgid "Ensure that there are no more than %(max)s decimal place."
+msgid_plural "Ensure that there are no more than %(max)s decimal places."
+msgstr[0] "Asegúrate de que no haya más de %(max)s lugar decimal."
+msgstr[1] "Asegúrate de que no haya más de %(max)s lugares decimales."
+
+#: env/lib/python3.13/site-packages/django/core/validators.py:475
+#, python-format
+msgid ""
+"Ensure that there are no more than %(max)s digit before the decimal point."
+msgid_plural ""
+"Ensure that there are no more than %(max)s digits before the decimal point."
+msgstr[0] ""
+"Asegúrate de que no haya más de %(max)s dígito antes del punto decimal."
+msgstr[1] ""
+"Asegúrate de que no haya más de %(max)s dígitos antes del punto decimal."
+
+#: env/lib/python3.13/site-packages/django/core/validators.py:546
+#, python-format
+msgid ""
+"File extension “%(extension)s” is not allowed. Allowed extensions are: "
+"%(allowed_extensions)s."
+msgstr ""
+"La extensión de archivo «%(extension)s» no está permitida. Las extensiones "
+"permitidas son: %(allowed_extensions)s."
+
+#: env/lib/python3.13/site-packages/django/core/validators.py:607
+msgid "Null characters are not allowed."
+msgstr "No se permiten caracteres nulos."
+
+#: env/lib/python3.13/site-packages/django/db/models/base.py:1423
+#: env/lib/python3.13/site-packages/django/forms/models.py:893
+msgid "and"
+msgstr "y"
+
+#: env/lib/python3.13/site-packages/django/db/models/base.py:1425
+#, python-format
+msgid "%(model_name)s with this %(field_labels)s already exists."
+msgstr "Ya existe un/a %(model_name)s con este/a %(field_labels)s."
+
+#: env/lib/python3.13/site-packages/django/db/models/constraints.py:17
+#, python-format
+msgid "Constraint “%(name)s” is violated."
+msgstr "Se viola la restricción «%(name)s»."
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/__init__.py:128
+#, python-format
+msgid "Value %(value)r is not a valid choice."
+msgstr "El valor %(value)r no es una opción válida."
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/__init__.py:129
+msgid "This field cannot be null."
+msgstr "Este campo no puede ser nulo."
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/__init__.py:130
+msgid "This field cannot be blank."
+msgstr "Este campo no puede estar en blanco."
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/__init__.py:131
+#, python-format
+msgid "%(model_name)s with this %(field_label)s already exists."
+msgstr "Ya existe un/a %(model_name)s con este/a %(field_label)s."
+
+#. Translators: The 'lookup_type' is one of 'date', 'year' or
+#. 'month'. Eg: "Title must be unique for pub_date year"
+#: env/lib/python3.13/site-packages/django/db/models/fields/__init__.py:135
+#, python-format
+msgid ""
+"%(field_label)s must be unique for %(date_field_label)s %(lookup_type)s."
+msgstr ""
+"%(field_label)s debe ser único para el %(lookup_type)s de "
+"%(date_field_label)s."
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/__init__.py:173
+#, python-format
+msgid "Field of type: %(field_type)s"
+msgstr "Campo de tipo: %(field_type)s"
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/__init__.py:1094
+#, python-format
+msgid "“%(value)s” value must be either True or False."
+msgstr "El valor «%(value)s» debe ser True o False."
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/__init__.py:1095
+#, python-format
+msgid "“%(value)s” value must be either True, False, or None."
+msgstr "El valor «%(value)s» debe ser True, False o None."
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/__init__.py:1097
+msgid "Boolean (Either True or False)"
+msgstr "Booleano (True o False)"
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/__init__.py:1147
+#, python-format
+msgid "String (up to %(max_length)s)"
+msgstr "Cadena (hasta %(max_length)s)"
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/__init__.py:1149
+msgid "String (unlimited)"
+msgstr "Cadena (ilimitada)"
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/__init__.py:1253
+msgid "Comma-separated integers"
+msgstr "Enteros separados por comas"
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/__init__.py:1354
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid date format. It must be in YYYY-MM-DD "
+"format."
+msgstr ""
+"El valor «%(value)s» tiene un formato de fecha no válido. Debe estar en el "
+"formato AAAA-MM-DD."
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/__init__.py:1358
+#: env/lib/python3.13/site-packages/django/db/models/fields/__init__.py:1493
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (YYYY-MM-DD) but it is an invalid "
+"date."
+msgstr ""
+"El valor «%(value)s» tiene el formato correcto (AAAA-MM-DD) pero no es una "
+"fecha válida."
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/__init__.py:1362
+msgid "Date (without time)"
+msgstr "Fecha (sin hora)"
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/__init__.py:1489
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in YYYY-MM-DD "
+"HH:MM[:ss[.uuuuuu]][TZ] format."
+msgstr ""
+"El valor «%(value)s» tiene un formato no válido. Debe estar en el formato "
+"AAAA-MM-DD HH:MM[:ss[.uuuuuu]][TZ]."
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/__init__.py:1497
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (YYYY-MM-DD HH:MM[:ss[.uuuuuu]]"
+"[TZ]) but it is an invalid date/time."
+msgstr ""
+"El valor «%(value)s» tiene el formato correcto (AAAA-MM-DD "
+"HH:MM[:ss[.uuuuuu]][TZ]) pero no es una fecha/hora válida."
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/__init__.py:1502
+msgid "Date (with time)"
+msgstr "Fecha (con hora)"
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/__init__.py:1626
+#, python-format
+msgid "“%(value)s” value must be a decimal number."
+msgstr "El valor «%(value)s» debe ser un número decimal."
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/__init__.py:1628
+msgid "Decimal number"
+msgstr "Número decimal"
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/__init__.py:1789
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in [DD] "
+"[[HH:]MM:]ss[.uuuuuu] format."
+msgstr ""
+"El valor «%(value)s» tiene un formato no válido. Debe estar en el formato "
+"[DD] [[HH:]MM:]ss[.uuuuuu]."
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/__init__.py:1793
+msgid "Duration"
+msgstr "Duración"
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/__init__.py:1845
+msgid "Email address"
+msgstr "Dirección de correo electrónico"
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/__init__.py:1870
+msgid "File path"
+msgstr "Ruta del archivo"
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/__init__.py:1948
+#, python-format
+msgid "“%(value)s” value must be a float."
+msgstr "El valor «%(value)s» debe ser un flotante."
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/__init__.py:1950
+msgid "Floating point number"
+msgstr "Número de coma flotante"
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/__init__.py:1990
+#, python-format
+msgid "“%(value)s” value must be an integer."
+msgstr "El valor «%(value)s» debe ser un entero."
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/__init__.py:1992
+msgid "Integer"
+msgstr "Entero"
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/__init__.py:2088
+msgid "Big (8 byte) integer"
+msgstr "Entero grande (8 bytes)"
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/__init__.py:2105
+msgid "Small integer"
+msgstr "Entero pequeño"
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/__init__.py:2113
+msgid "IPv4 address"
+msgstr "Dirección IPv4"
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/__init__.py:2144
+msgid "IP address"
+msgstr "Dirección IP"
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/__init__.py:2237
+#: env/lib/python3.13/site-packages/django/db/models/fields/__init__.py:2238
+#, python-format
+msgid "“%(value)s” value must be either None, True or False."
+msgstr "El valor «%(value)s» debe ser None, True o False."
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/__init__.py:2240
+msgid "Boolean (Either True, False or None)"
+msgstr "Booleano (True, False o None)"
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/__init__.py:2291
+msgid "Positive big integer"
+msgstr "Entero grande positivo"
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/__init__.py:2306
+msgid "Positive integer"
+msgstr "Entero positivo"
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/__init__.py:2321
+msgid "Positive small integer"
+msgstr "Entero pequeño positivo"
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/__init__.py:2337
+#, python-format
+msgid "Slug (up to %(max_length)s)"
+msgstr "Slug (hasta %(max_length)s)"
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/__init__.py:2373
+msgid "Text"
+msgstr "Texto"
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/__init__.py:2448
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in HH:MM[:ss[.uuuuuu]] "
+"format."
+msgstr ""
+"El valor «%(value)s» tiene un formato no válido. Debe estar en el formato "
+"HH:MM[:ss[.uuuuuu]]."
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/__init__.py:2452
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (HH:MM[:ss[.uuuuuu]]) but it is an "
+"invalid time."
+msgstr ""
+"El valor «%(value)s» tiene el formato correcto (HH:MM[:ss[.uuuuuu]]) pero no "
+"es una hora válida."
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/__init__.py:2456
+msgid "Time"
+msgstr "Hora"
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/__init__.py:2564
+msgid "URL"
+msgstr "URL"
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/__init__.py:2588
+msgid "Raw binary data"
+msgstr "Datos binarios sin procesar"
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/__init__.py:2653
+#, python-format
+msgid "“%(value)s” is not a valid UUID."
+msgstr "«%(value)s» no es un UUID válido."
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/__init__.py:2655
+msgid "Universally unique identifier"
+msgstr "Identificador único universal"
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/files.py:232
+msgid "File"
+msgstr "Archivo"
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/files.py:393
+msgid "Image"
+msgstr "Imagen"
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/json.py:26
+msgid "A JSON object"
+msgstr "Un objeto JSON"
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/json.py:28
+msgid "Value must be valid JSON."
+msgstr "El valor debe ser JSON válido."
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/related.py:919
+#, python-format
+msgid "%(model)s instance with %(field)s %(value)r does not exist."
+msgstr "No existe una instancia de %(model)s con %(field)s %(value)r."
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/related.py:921
+msgid "Foreign Key (type determined by related field)"
+msgstr "Clave foránea (tipo determinado por el campo relacionado)"
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/related.py:1212
+msgid "One-to-one relationship"
+msgstr "Relación uno a uno"
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/related.py:1269
+#, python-format
+msgid "%(from)s-%(to)s relationship"
+msgstr "Relación %(from)s-%(to)s"
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/related.py:1271
+#, python-format
+msgid "%(from)s-%(to)s relationships"
+msgstr "Relaciones %(from)s-%(to)s"
+
+#: env/lib/python3.13/site-packages/django/db/models/fields/related.py:1319
+msgid "Many-to-many relationship"
+msgstr "Relación muchos a muchos"
+
+#. Translators: If found as last label character, these punctuation
+#. characters will prevent the default label_suffix to be appended to the label
+#: env/lib/python3.13/site-packages/django/forms/boundfield.py:184
+msgid ":?.!"
+msgstr ":?.!"
+
+#: env/lib/python3.13/site-packages/django/forms/fields.py:91
+msgid "This field is required."
+msgstr "Este campo es obligatorio."
+
+#: env/lib/python3.13/site-packages/django/forms/fields.py:298
+msgid "Enter a whole number."
+msgstr "Introduce un número entero."
+
+#: env/lib/python3.13/site-packages/django/forms/fields.py:467
+#: env/lib/python3.13/site-packages/django/forms/fields.py:1241
+msgid "Enter a valid date."
+msgstr "Introduce una fecha válida."
+
+#: env/lib/python3.13/site-packages/django/forms/fields.py:490
+#: env/lib/python3.13/site-packages/django/forms/fields.py:1242
+msgid "Enter a valid time."
+msgstr "Introduce una hora válida."
+
+#: env/lib/python3.13/site-packages/django/forms/fields.py:517
+msgid "Enter a valid date/time."
+msgstr "Introduce una fecha/hora válida."
+
+#: env/lib/python3.13/site-packages/django/forms/fields.py:551
+msgid "Enter a valid duration."
+msgstr "Introduce una duración válida."
+
+#: env/lib/python3.13/site-packages/django/forms/fields.py:552
+#, python-brace-format
+msgid "The number of days must be between {min_days} and {max_days}."
+msgstr "El número de días debe estar entre {min_days} y {max_days}."
+
+#: env/lib/python3.13/site-packages/django/forms/fields.py:621
+msgid "No file was submitted. Check the encoding type on the form."
+msgstr ""
+"No se envió ningún archivo. Comprueba el tipo de codificación en el "
+"formulario."
+
+#: env/lib/python3.13/site-packages/django/forms/fields.py:622
+msgid "No file was submitted."
+msgstr "No se envió ningún archivo."
+
+#: env/lib/python3.13/site-packages/django/forms/fields.py:623
+msgid "The submitted file is empty."
+msgstr "El archivo enviado está vacío."
+
+#: env/lib/python3.13/site-packages/django/forms/fields.py:625
+#, python-format
+msgid "Ensure this filename has at most %(max)d character (it has %(length)d)."
+msgid_plural ""
+"Ensure this filename has at most %(max)d characters (it has %(length)d)."
+msgstr[0] ""
+"Asegúrate de que este nombre de archivo tenga como máximo %(max)d carácter "
+"(tiene %(length)d)."
+msgstr[1] ""
+"Asegúrate de que este nombre de archivo tenga como máximo %(max)d caracteres "
+"(tiene %(length)d)."
+
+#: env/lib/python3.13/site-packages/django/forms/fields.py:630
+msgid "Please either submit a file or check the clear checkbox, not both."
+msgstr ""
+"Por favor, envía un archivo o marca la casilla de borrar, no ambas cosas."
+
+#: env/lib/python3.13/site-packages/django/forms/fields.py:694
+msgid ""
+"Upload a valid image. The file you uploaded was either not an image or a "
+"corrupted image."
+msgstr ""
+"Sube una imagen válida. El archivo que has subido no era una imagen o estaba "
+"dañado."
+
+#: env/lib/python3.13/site-packages/django/forms/fields.py:857
+#: env/lib/python3.13/site-packages/django/forms/fields.py:949
+#: env/lib/python3.13/site-packages/django/forms/models.py:1566
+#, python-format
+msgid "Select a valid choice. %(value)s is not one of the available choices."
+msgstr ""
+"Selecciona una opción válida. %(value)s no es una de las opciones "
+"disponibles."
+
+#: env/lib/python3.13/site-packages/django/forms/fields.py:951
+#: env/lib/python3.13/site-packages/django/forms/fields.py:1070
+#: env/lib/python3.13/site-packages/django/forms/models.py:1564
+msgid "Enter a list of values."
+msgstr "Introduce una lista de valores."
+
+#: env/lib/python3.13/site-packages/django/forms/fields.py:1071
+msgid "Enter a complete value."
+msgstr "Introduce un valor completo."
+
+#: env/lib/python3.13/site-packages/django/forms/fields.py:1313
+msgid "Enter a valid UUID."
+msgstr "Introduce un UUID válido."
+
+#: env/lib/python3.13/site-packages/django/forms/fields.py:1343
+msgid "Enter a valid JSON."
+msgstr "Introduce un JSON válido."
+
+#. Translators: This is the default suffix added to form field labels
+#: env/lib/python3.13/site-packages/django/forms/forms.py:98
+msgid ":"
+msgstr ":"
+
+#: env/lib/python3.13/site-packages/django/forms/forms.py:244
+#: env/lib/python3.13/site-packages/django/forms/forms.py:328
+#, python-format
+msgid "(Hidden field %(name)s) %(error)s"
+msgstr "(Campo oculto %(name)s) %(error)s"
+
+#: env/lib/python3.13/site-packages/django/forms/formsets.py:63
+#, python-format
+msgid ""
+"ManagementForm data is missing or has been tampered with. Missing fields: "
+"%(field_names)s. You may need to file a bug report if the issue persists."
+msgstr ""
+"Faltan o se han manipulado los datos de ManagementForm. Campos que faltan: "
+"%(field_names)s. Es posible que debas enviar un informe de error si el "
+"problema persiste."
+
+#: env/lib/python3.13/site-packages/django/forms/formsets.py:67
+#, python-format
+msgid "Please submit at most %(num)d form."
+msgid_plural "Please submit at most %(num)d forms."
+msgstr[0] "Por favor, envía como máximo %(num)d formulario."
+msgstr[1] "Por favor, envía como máximo %(num)d formularios."
+
+#: env/lib/python3.13/site-packages/django/forms/formsets.py:72
+#, python-format
+msgid "Please submit at least %(num)d form."
+msgid_plural "Please submit at least %(num)d forms."
+msgstr[0] "Por favor, envía al menos %(num)d formulario."
+msgstr[1] "Por favor, envía al menos %(num)d formularios."
+
+#: env/lib/python3.13/site-packages/django/forms/formsets.py:484
+#: env/lib/python3.13/site-packages/django/forms/formsets.py:491
+msgid "Order"
+msgstr "Orden"
+
+#: env/lib/python3.13/site-packages/django/forms/formsets.py:499
+msgid "Delete"
+msgstr "Eliminar"
+
+#: env/lib/python3.13/site-packages/django/forms/models.py:886
+#, python-format
+msgid "Please correct the duplicate data for %(field)s."
+msgstr "Por favor, corrige los datos duplicados para %(field)s."
+
+#: env/lib/python3.13/site-packages/django/forms/models.py:891
+#, python-format
+msgid "Please correct the duplicate data for %(field)s, which must be unique."
+msgstr ""
+"Por favor, corrige los datos duplicados para %(field)s, que debe ser único."
+
+#: env/lib/python3.13/site-packages/django/forms/models.py:898
+#, python-format
+msgid ""
+"Please correct the duplicate data for %(field_name)s which must be unique "
+"for the %(lookup)s in %(date_field)s."
+msgstr ""
+"Por favor, corrige los datos duplicados para %(field_name)s que debe ser "
+"único para el %(lookup)s en %(date_field)s."
+
+#: env/lib/python3.13/site-packages/django/forms/models.py:907
+msgid "Please correct the duplicate values below."
+msgstr "Por favor, corrige los valores duplicados a continuación."
+
+#: env/lib/python3.13/site-packages/django/forms/models.py:1338
+msgid "The inline value did not match the parent instance."
+msgstr "El valor en línea no coincidió con la instancia principal."
+
+#: env/lib/python3.13/site-packages/django/forms/models.py:1429
+msgid "Select a valid choice. That choice is not one of the available choices."
+msgstr ""
+"Selecciona una opción válida. Esa opción no es una de las opciones "
+"disponibles."
+
+#: env/lib/python3.13/site-packages/django/forms/models.py:1568
+#, python-format
+msgid "“%(pk)s” is not a valid value."
+msgstr "«%(pk)s» no es un valor válido."
+
+#: env/lib/python3.13/site-packages/django/forms/utils.py:226
+#, python-format
+msgid ""
+"%(datetime)s couldn’t be interpreted in time zone %(current_timezone)s; it "
+"may be ambiguous or it may not exist."
+msgstr ""
+"%(datetime)s no se pudo interpretar en la zona horaria %(current_timezone)s; "
+"puede ser ambiguo o puede que no exista."
+
+#: env/lib/python3.13/site-packages/django/forms/widgets.py:463
+msgid "Clear"
+msgstr "Borrar"
+
+#: env/lib/python3.13/site-packages/django/forms/widgets.py:464
+msgid "Currently"
+msgstr "Actual"
+
+#: env/lib/python3.13/site-packages/django/forms/widgets.py:465
+msgid "Change"
+msgstr "Cambiar"
+
+#: env/lib/python3.13/site-packages/django/forms/widgets.py:794
+msgid "Unknown"
+msgstr "Desconocido"
+
+#: env/lib/python3.13/site-packages/django/forms/widgets.py:795
+msgid "Yes"
+msgstr "Sí"
+
+#: env/lib/python3.13/site-packages/django/forms/widgets.py:796
+msgid "No"
+msgstr "No"
+
+#. Translators: Please do not add spaces around commas.
+#: env/lib/python3.13/site-packages/django/template/defaultfilters.py:874
+msgid "yes,no,maybe"
+msgstr "sí,no,quizás"
+
+#: env/lib/python3.13/site-packages/django/template/defaultfilters.py:904
+#: env/lib/python3.13/site-packages/django/template/defaultfilters.py:921
+#, python-format
+msgid "%(size)d byte"
+msgid_plural "%(size)d bytes"
+msgstr[0] "%(size)d byte"
+msgstr[1] "%(size)d bytes"
+
+#: env/lib/python3.13/site-packages/django/template/defaultfilters.py:923
+#, python-format
+msgid "%s KB"
+msgstr "%s KB"
+
+#: env/lib/python3.13/site-packages/django/template/defaultfilters.py:925
+#, python-format
+msgid "%s MB"
+msgstr "%s MB"
+
+#: env/lib/python3.13/site-packages/django/template/defaultfilters.py:927
+#, python-format
+msgid "%s GB"
+msgstr "%s GB"
+
+#: env/lib/python3.13/site-packages/django/template/defaultfilters.py:929
+#, python-format
+msgid "%s TB"
+msgstr "%s TB"
+
+#: env/lib/python3.13/site-packages/django/template/defaultfilters.py:931
+#, python-format
+msgid "%s PB"
+msgstr "%s PB"
+
+#: env/lib/python3.13/site-packages/django/utils/dateformat.py:73
+msgid "p.m."
+msgstr "p.m."
+
+#: env/lib/python3.13/site-packages/django/utils/dateformat.py:74
+msgid "a.m."
+msgstr "a.m."
+
+#: env/lib/python3.13/site-packages/django/utils/dateformat.py:79
+msgid "PM"
+msgstr "PM"
+
+#: env/lib/python3.13/site-packages/django/utils/dateformat.py:80
+msgid "AM"
+msgstr "AM"
+
+#: env/lib/python3.13/site-packages/django/utils/dateformat.py:152
+msgid "midnight"
+msgstr "medianoche"
+
+#: env/lib/python3.13/site-packages/django/utils/dateformat.py:154
+msgid "noon"
+msgstr "mediodía"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:7
+msgid "Monday"
+msgstr "Lunes"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:8
+msgid "Tuesday"
+msgstr "Martes"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:9
+msgid "Wednesday"
+msgstr "Miércoles"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:10
+msgid "Thursday"
+msgstr "Jueves"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:11
+msgid "Friday"
+msgstr "Viernes"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:12
+msgid "Saturday"
+msgstr "Sábado"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:13
+msgid "Sunday"
+msgstr "Domingo"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:16
+msgid "Mon"
+msgstr "Lun"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:17
+msgid "Tue"
+msgstr "Mar"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:18
+msgid "Wed"
+msgstr "Mié"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:19
+msgid "Thu"
+msgstr "Jue"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:20
+msgid "Fri"
+msgstr "Vie"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:21
+msgid "Sat"
+msgstr "Sáb"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:22
+msgid "Sun"
+msgstr "Dom"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:25
+msgid "January"
+msgstr "Enero"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:26
+msgid "February"
+msgstr "Febrero"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:27
+msgid "March"
+msgstr "Marzo"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:28
+msgid "April"
+msgstr "Abril"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:29
+msgid "May"
+msgstr "Mayo"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:30
+msgid "June"
+msgstr "Junio"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:31
+msgid "July"
+msgstr "Julio"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:32
+msgid "August"
+msgstr "Agosto"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:33
+msgid "September"
+msgstr "Septiembre"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:34
+msgid "October"
+msgstr "Octubre"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:35
+msgid "November"
+msgstr "Noviembre"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:36
+msgid "December"
+msgstr "Diciembre"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:39
+msgid "jan"
+msgstr "ene"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:40
+msgid "feb"
+msgstr "feb"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:41
+msgid "mar"
+msgstr "mar"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:42
+msgid "apr"
+msgstr "abr"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:43
+msgid "may"
+msgstr "may"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:44
+msgid "jun"
+msgstr "jun"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:45
+msgid "jul"
+msgstr "jul"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:46
+msgid "aug"
+msgstr "ago"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:47
+msgid "sep"
+msgstr "sep"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:48
+msgid "oct"
+msgstr "oct"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:49
+msgid "nov"
+msgstr "nov"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:50
+msgid "dec"
+msgstr "dic"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:53
+msgctxt "abbrev. month"
+msgid "Jan."
+msgstr "Ene."
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:54
+msgctxt "abbrev. month"
+msgid "Feb."
+msgstr "Feb."
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:55
+msgctxt "abbrev. month"
+msgid "March"
+msgstr "Marzo"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:56
+msgctxt "abbrev. month"
+msgid "April"
+msgstr "Abril"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:57
+msgctxt "abbrev. month"
+msgid "May"
+msgstr "Mayo"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:58
+msgctxt "abbrev. month"
+msgid "June"
+msgstr "Junio"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:59
+msgctxt "abbrev. month"
+msgid "July"
+msgstr "Julio"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:60
+msgctxt "abbrev. month"
+msgid "Aug."
+msgstr "Ago."
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:61
+msgctxt "abbrev. month"
+msgid "Sept."
+msgstr "Sept."
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:62
+msgctxt "abbrev. month"
+msgid "Oct."
+msgstr "Oct."
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:63
+msgctxt "abbrev. month"
+msgid "Nov."
+msgstr "Nov."
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:64
+msgctxt "abbrev. month"
+msgid "Dec."
+msgstr "Dic."
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:67
+msgctxt "alt. month"
+msgid "January"
+msgstr "Enero"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:68
+msgctxt "alt. month"
+msgid "February"
+msgstr "Febrero"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:69
+msgctxt "alt. month"
+msgid "March"
+msgstr "Marzo"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:70
+msgctxt "alt. month"
+msgid "April"
+msgstr "Abril"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:71
+msgctxt "alt. month"
+msgid "May"
+msgstr "Mayo"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:72
+msgctxt "alt. month"
+msgid "June"
+msgstr "Junio"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:73
+msgctxt "alt. month"
+msgid "July"
+msgstr "Julio"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:74
+msgctxt "alt. month"
+msgid "August"
+msgstr "Agosto"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:75
+msgctxt "alt. month"
+msgid "September"
+msgstr "Septiembre"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:76
+msgctxt "alt. month"
+msgid "October"
+msgstr "Octubre"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:77
+msgctxt "alt. month"
+msgid "November"
+msgstr "Noviembre"
+
+#: env/lib/python3.13/site-packages/django/utils/dates.py:78
+msgctxt "alt. month"
+msgid "December"
+msgstr "Diciembre"
+
+#: env/lib/python3.13/site-packages/django/utils/ipv6.py:20
+msgid "This is not a valid IPv6 address."
+msgstr "Esta no es una dirección IPv6 válida."
+
+#: env/lib/python3.13/site-packages/django/utils/text.py:138
+#, python-format
+msgctxt "String to return when truncating text"
+msgid "%(truncated_text)s…"
+msgstr "%(truncated_text)s…"
+
+#: env/lib/python3.13/site-packages/django/utils/text.py:323
+msgid "or"
+msgstr "o"
+
+#. Translators: This string is used as a separator between list elements
+#: env/lib/python3.13/site-packages/django/utils/text.py:342
+#: env/lib/python3.13/site-packages/django/utils/timesince.py:135
+msgid ", "
+msgstr ", "
+
+#: env/lib/python3.13/site-packages/django/utils/timesince.py:8
+#, python-format
+msgid "%(num)d year"
+msgid_plural "%(num)d years"
+msgstr[0] "%(num)d año"
+msgstr[1] "%(num)d años"
+
+#: env/lib/python3.13/site-packages/django/utils/timesince.py:9
+#, python-format
+msgid "%(num)d month"
+msgid_plural "%(num)d months"
+msgstr[0] "%(num)d mes"
+msgstr[1] "%(num)d meses"
+
+#: env/lib/python3.13/site-packages/django/utils/timesince.py:10
+#, python-format
+msgid "%(num)d week"
+msgid_plural "%(num)d weeks"
+msgstr[0] "%(num)d semana"
+msgstr[1] "%(num)d semanas"
+
+#: env/lib/python3.13/site-packages/django/utils/timesince.py:11
+#, python-format
+msgid "%(num)d day"
+msgid_plural "%(num)d days"
+msgstr[0] "%(num)d día"
+msgstr[1] "%(num)d días"
+
+#: env/lib/python3.13/site-packages/django/utils/timesince.py:12
+#, python-format
+msgid "%(num)d hour"
+msgid_plural "%(num)d hours"
+msgstr[0] "%(num)d hora"
+msgstr[1] "%(num)d horas"
+
+#: env/lib/python3.13/site-packages/django/utils/timesince.py:13
+#, python-format
+msgid "%(num)d minute"
+msgid_plural "%(num)d minutes"
+msgstr[0] "%(num)d minuto"
+msgstr[1] "%(num)d minutos"
+
+#: env/lib/python3.13/site-packages/django/views/csrf.py:111
+msgid "Forbidden"
+msgstr "Prohibido"
+
+#: env/lib/python3.13/site-packages/django/views/csrf.py:112
+msgid "CSRF verification failed. Request aborted."
+msgstr "Falló la verificación CSRF. Solicitud abortada."
+
+#: env/lib/python3.13/site-packages/django/views/csrf.py:116
+msgid ""
+"You are seeing this message because this HTTPS site requires a “Referer "
+"header” to be sent by your web browser, but none was sent. This header is "
+"required for security reasons, to ensure that your browser is not being "
+"hijacked by third parties."
+msgstr ""
+"Estás viendo este mensaje porque este sitio HTTPS requiere que tu navegador "
+"envíe un “encabezado Referer”, pero no se envió ninguno. Este encabezado es "
+"necesario por razones de seguridad, para asegurar que tu navegador no esté "
+"siendo secuestrado por terceros."
+
+#: env/lib/python3.13/site-packages/django/views/csrf.py:122
+msgid ""
+"If you have configured your browser to disable “Referer” headers, please re-"
+"enable them, at least for this site, or for HTTPS connections, or for “same-"
+"origin” requests."
+msgstr ""
+"Si has configurado tu navegador para deshabilitar los encabezados “Referer”, "
+"por favor, vuélvelos a habilitar, al menos para este sitio, o para "
+"conexiones HTTPS, o para solicitudes de “mismo origen”."
+
+#: env/lib/python3.13/site-packages/django/views/csrf.py:127
+msgid ""
+"If you are using the <meta name=\"referrer\" content=\"no-referrer\"> tag or "
+"including the “Referrer-Policy: no-referrer” header, please remove them. The "
+"CSRF protection requires the “Referer” header to do strict referer checking. "
+"If you’re concerned about privacy, use alternatives like <a "
+"rel=\"noreferrer\" …> for links to third-party sites."
+msgstr ""
+"Si estás utilizando la etiqueta <meta name=\"referrer\" content=\"no-"
+"referrer\"> o incluyendo el encabezado “Referrer-Policy: no-referrer”, por "
+"favor, elimínalos. La protección CSRF requiere el encabezado “Referer” para "
+"hacer una verificación estricta. Si te preocupa la privacidad, utiliza "
+"alternativas como <a rel=\"noreferrer\" …> para enlaces a sitios de terceros."
+
+#: env/lib/python3.13/site-packages/django/views/csrf.py:136
+msgid ""
+"You are seeing this message because this site requires a CSRF cookie when "
+"submitting forms. This cookie is required for security reasons, to ensure "
+"that your browser is not being hijacked by third parties."
+msgstr ""
+"Estás viendo este mensaje porque este sitio requiere una cookie CSRF al "
+"enviar formularios. Esta cookie es necesaria por razones de seguridad, para "
+"asegurar que tu navegador no esté siendo secuestrado por terceros."
+
+#: env/lib/python3.13/site-packages/django/views/csrf.py:142
+msgid ""
+"If you have configured your browser to disable cookies, please re-enable "
+"them, at least for this site, or for “same-origin” requests."
+msgstr ""
+"Si has configurado tu navegador para deshabilitar las cookies, por favor, "
+"vuélvelas a habilitar, al menos para este sitio, o para solicitudes de "
+"“mismo origen”."
+
+#: env/lib/python3.13/site-packages/django/views/csrf.py:148
+msgid "More information is available with DEBUG=True."
+msgstr "Más información disponible con DEBUG=True."
+
+#: env/lib/python3.13/site-packages/django/views/generic/dates.py:44
+msgid "No year specified"
+msgstr "No se especificó el año"
+
+#: env/lib/python3.13/site-packages/django/views/generic/dates.py:64
+#: env/lib/python3.13/site-packages/django/views/generic/dates.py:115
+#: env/lib/python3.13/site-packages/django/views/generic/dates.py:214
+msgid "Date out of range"
+msgstr "Fecha fuera de rango"
+
+#: env/lib/python3.13/site-packages/django/views/generic/dates.py:94
+msgid "No month specified"
+msgstr "No se especificó el mes"
+
+#: env/lib/python3.13/site-packages/django/views/generic/dates.py:147
+msgid "No day specified"
+msgstr "No se especificó el día"
+
+#: env/lib/python3.13/site-packages/django/views/generic/dates.py:194
+msgid "No week specified"
+msgstr "No se especificó la semana"
+
+#: env/lib/python3.13/site-packages/django/views/generic/dates.py:349
+#: env/lib/python3.13/site-packages/django/views/generic/dates.py:380
+#, python-format
+msgid "No %(verbose_name_plural)s available"
+msgstr "No hay %(verbose_name_plural)s disponibles"
+
+#: env/lib/python3.13/site-packages/django/views/generic/dates.py:652
+#, python-format
+msgid ""
+"Future %(verbose_name_plural)s not available because "
+"%(class_name)s.allow_future is False."
+msgstr ""
+"%(verbose_name_plural)s futuros no disponibles porque "
+"%(class_name)s.allow_future es False."
+
+#: env/lib/python3.13/site-packages/django/views/generic/dates.py:692
+#, python-format
+msgid "Invalid date string “%(datestr)s” given format “%(format)s”"
+msgstr "Cadena de fecha “%(datestr)s” no válida para el formato “%(format)s”"
+
+#: env/lib/python3.13/site-packages/django/views/generic/detail.py:56
+#, python-format
+msgid "No %(verbose_name)s found matching the query"
+msgstr "No se encontró ningún %(verbose_name)s que coincida con la consulta"
+
+#: env/lib/python3.13/site-packages/django/views/generic/list.py:70
+msgid "Page is not “last”, nor can it be converted to an int."
+msgstr "La página no es “last”, ni se puede convertir a un entero."
+
+#: env/lib/python3.13/site-packages/django/views/generic/list.py:77
+#, python-format
+msgid "Invalid page (%(page_number)s): %(message)s"
+msgstr "Página no válida (%(page_number)s): %(message)s"
+
+#: env/lib/python3.13/site-packages/django/views/generic/list.py:169
+#, python-format
+msgid "Empty list and “%(class_name)s.allow_empty” is False."
+msgstr "Lista vacía y “%(class_name)s.allow_empty” es False."
+
+#: env/lib/python3.13/site-packages/django/views/static.py:38
+msgid "Directory indexes are not allowed here."
+msgstr "Los índices de directorio no están permitidos aquí."
+
+#: env/lib/python3.13/site-packages/django/views/static.py:40
+#, python-format
+msgid "“%(path)s” does not exist"
+msgstr "“%(path)s” no existe"
+
+#: env/lib/python3.13/site-packages/django/views/static.py:79
+#, python-format
+msgid "Index of %(directory)s"
+msgstr "Índice de %(directory)s"
+
+#: env/lib/python3.13/site-packages/django/views/templates/default_urlconf.html:7
+#: env/lib/python3.13/site-packages/django/views/templates/default_urlconf.html:220
+msgid "The install worked successfully! Congratulations!"
+msgstr "¡La instalación funcionó correctamente! ¡Felicidades!"
+
+#: env/lib/python3.13/site-packages/django/views/templates/default_urlconf.html:206
+#, python-format
+msgid ""
+"View <a href=\"https://docs.djangoproject.com/en/%(version)s/releases/\" "
+"target=\"_blank\" rel=\"noopener\">release notes</a> for Django %(version)s"
+msgstr ""
+"Ver <a href=\"https://docs.djangoproject.com/en/%(version)s/releases/\" "
+"target=\"_blank\" rel=\"noopener\">notas de la versión</a> para Django "
+"%(version)s"
+
+#: env/lib/python3.13/site-packages/django/views/templates/default_urlconf.html:221
+#, python-format
+msgid ""
+"You are seeing this page because <a href=\"https://docs.djangoproject.com/en/"
+"%(version)s/ref/settings/#debug\" target=\"_blank\" "
+"rel=\"noopener\">DEBUG=True</a> is in your settings file and you have not "
+"configured any URLs."
+msgstr ""
+"Estás viendo esta página porque <a href=\"https://docs.djangoproject.com/en/"
+"%(version)s/ref/settings/#debug\" target=\"_blank\" "
+"rel=\"noopener\">DEBUG=True</a> está en tu archivo de configuración y no has "
+"configurado ninguna URL."
+
+#: env/lib/python3.13/site-packages/django/views/templates/default_urlconf.html:229
+msgid "Django Documentation"
+msgstr "Documentación de Django"
+
+#: env/lib/python3.13/site-packages/django/views/templates/default_urlconf.html:230
+msgid "Topics, references, &amp; how-to’s"
+msgstr "Temas, referencias y guías prácticas"
+
+#: env/lib/python3.13/site-packages/django/views/templates/default_urlconf.html:238
+msgid "Tutorial: A Polling App"
+msgstr "Tutorial: Una aplicación de encuestas"
+
+#: env/lib/python3.13/site-packages/django/views/templates/default_urlconf.html:239
+msgid "Get started with Django"
+msgstr "Empieza con Django"
+
+#: env/lib/python3.13/site-packages/django/views/templates/default_urlconf.html:247
+msgid "Django Community"
+msgstr "Comunidad Django"
+
+#: env/lib/python3.13/site-packages/django/views/templates/default_urlconf.html:248
+msgid "Connect, get help, or contribute"
+msgstr "Conecta, obtén ayuda o contribuye"
+
+#: env/lib/python3.13/site-packages/httplib2/__init__.py:407
+#, python-format
+msgid "Content purported to be compressed with %s but failed to decompress."
+msgstr ""
+"El contenido pretendía ser comprimido con %s, pero falló al descomprimir."
+
+#: env/lib/python3.13/site-packages/httplib2/__init__.py:571
+#, python-format
+msgid "Unsupported value for qop: %s."
+msgstr "Valor no compatible para qop: %s."
+
+#: env/lib/python3.13/site-packages/httplib2/__init__.py:575
+#: env/lib/python3.13/site-packages/httplib2/__init__.py:653
+#, python-format
+msgid "Unsupported value for algorithm: %s."
+msgstr "Valor no compatible para algoritmo: %s."
+
+#: env/lib/python3.13/site-packages/httplib2/__init__.py:648
+msgid "The challenge doesn't contain a server nonce, or this one is empty."
+msgstr "El desafío no contiene un 'nonce' de servidor, o este está vacío."
+
+#: env/lib/python3.13/site-packages/httplib2/__init__.py:658
+#, python-format
+msgid "Unsupported value for pw-algorithm: %s."
+msgstr "Valor no compatible para pw-algorithm: %s."
+
+#: env/lib/python3.13/site-packages/httplib2/__init__.py:1471
+msgid "Redirected but the response is missing a Location: header."
+msgstr "Redirigido pero la respuesta carece de un encabezado Location:."

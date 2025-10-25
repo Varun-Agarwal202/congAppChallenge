@@ -1,4 +1,5 @@
 {% extends 'app/base.html' %}
+{% load i18n %}
 
 {% block content %}
 <script
@@ -6,23 +7,23 @@ src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0">
 </script>
 
 <div class = "container">
-    <h1>Student Progress</h1>
+    <h1>{% trans "Student Progress" %}</h1>
     
     <div class="row mb-3">
         <div class="col-md-6">
-            <label for="subject-select" class="form-label">Subject:</label>
+            <label for="subject-select" class="form-label">{% trans "Subject:" %}</label>
             <select class="form-select" id="subject-select">
-                <option value="">Select a Subject</option>
+                <option value="">{% trans "Select a Subject" %}</option>
                 {% for rubric in rubrics %}
                     <option value="{{ rubric.subject }}">{{ rubric.subject }}</option>
                 {% endfor %}
             </select>
         </div>
         <div class="col-md-6">
-            <label for="student-select" class="form-label">Student:</label>
+            <label for="student-select" class="form-label">{% trans "Student:" %}</label>
             <select class="form-select" id="student-select">
-                <option value="">Select a Student</option>
-                <option value="class_average">Class Average</option>
+                <option value="">{% trans "Select a Student" %}</option>
+                <option value="class_average">{% trans "Class Average" %}</option>
                 {% for student in students %}
                     <option value="{{ student.id }}">{{ student.name }}</option>
                 {% endfor %}
