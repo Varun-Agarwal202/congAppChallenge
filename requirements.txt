@@ -6,6 +6,7 @@ certifi==2025.10.5
 cffi==2.0.0
 charset-normalizer==3.4.4
 cryptography==46.0.3
+deep-translator==1.11.4
 Django==4.2.25
 django-allauth==65.12.1
 django-bootstrap-v5==1.0.11
@@ -26,6 +27,7 @@ grpcio==1.76.0
 grpcio-status==1.71.2
 httplib2==0.31.0
 idna==3.11
+lxml==6.0.2
 oauthlib==3.3.1
 packaging==25.0
 proto-plus==1.26.1
@@ -37,7 +39,9 @@ pydantic==2.12.3
 pydantic_core==2.41.4
 PyJWT==2.10.1
 pyparsing==3.2.5
+PyPDF2==3.0.1
 python-dateutil==2.9.0.post0
+python-docx==1.2.0
 python-dotenv==1.1.1
 requests==2.32.5
 rsa==4.9.1
