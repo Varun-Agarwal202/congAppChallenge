@@ -35,8 +35,8 @@ src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0">
 </div>
 <script>
 let progressChart;
-const subjectsData = JSON.parse('{{ subjects_data | tojson | safe }}');
-const studentsData = JSON.parse('{{ students_json | tojson | safe }}');
+const subjectsData = JSON.parse('{{ subjects_data|safe }}');
+const studentsData = JSON.parse('{{ students_json|safe }}');
 
 // Initialize chart with empty data
 function initChart() {
@@ -62,7 +62,21 @@ function initChart() {
                 x: {
                     title: {
                         display: true,
-                        text: 'Date'
+                        text: 'Assignments'
+                    },
+                    ticks: {
+                        maxRotation: 45,
+                        minRotation: 45,
+                        autoSkip: false,
+                        callback: function(val, index) {
+                            // Get the label text
+                            const label = this.getLabelForValue(val);
+                            // Truncate to 20 characters and add ellipsis if needed
+                            return label.length > 20 ? label.substr(0, 20) + '...' : label;
+                        },
+                        font: {
+                            size: 11
+                        }
                     }
                 }
             },
@@ -74,6 +88,19 @@ function initChart() {
                 legend: {
                     display: true,
                     position: 'top'
+                },
+                tooltip: {
+                    callbacks: {
+                        // Show full text in tooltip
+                        title: function(context) {
+                            return context[0].label;
+                        }
+                    }
+                }
+            },
+            layout: {
+                padding: {
+                    bottom: 50
                 }
             }
         }

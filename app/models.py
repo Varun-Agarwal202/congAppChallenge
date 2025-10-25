@@ -18,14 +18,14 @@ class Rubric(models.Model):
     ], default='Math')
     grade_level = models.CharField(max_length=50 , default='Grade 1')
     strictness = models.IntegerField(default=5, validators=[MinValueValidator(1), MaxValueValidator(10)])
-
+    user = models.ForeignKey('auth.User', on_delete=models.CASCADE, null=True)
     def __str__(self):
         return self.title
     
 class Student(models.Model):
     name = models.CharField(max_length=200)
     created_at = models.DateTimeField(auto_now_add=True)
-
+    user = models.ForeignKey('auth.User', on_delete=models.CASCADE, null=True)
     def __str__(self):
         return self.name
     

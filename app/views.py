@@ -8,19 +8,47 @@ from datetime import datetime, timedelta
 import json
 import google.generativeai as genai
 from django.conf import settings
+from docx import Document
+from PyPDF2 import PdfReader
+import io
 
 # Configure Gemini client once
 genai.configure(api_key=settings.GOOGLE_API_KEY)
 
 def grade_assignment(request):
-    model = genai.GenerativeModel("gemini-2.5-flash")
+    model = genai.GenerativeModel("gemini-2.0-flash-lite")
     student = request.POST.get('student', '').strip()
     rubric_id = request.POST.get('rubric', '').strip()
-    description  = request.POST.get('description', '').strip()
     rubric = Rubric.objects.get(id=rubric_id)
     strictness = rubric.strictness
     grade_level = rubric.grade_level
-    print(grade_level)
+
+    # Handle file upload if present
+    if 'assignment_file' in request.FILES:
+        file = request.FILES['assignment_file']
+        
+        # Check file type
+        if file.name.endswith('.docx'):
+            # Handle Word document
+            doc = Document(io.BytesIO(file.read()))
+            description = '\n'.join([paragraph.text for paragraph in doc.paragraphs])
+        elif file.name.endswith('.pdf'):
+            # Handle PDF files
+            pdf = PdfReader(io.BytesIO(file.read()))
+            text_content = []
+            for page in pdf.pages:
+                text_content.append(page.extract_text())
+            description = '\n'.join(text_content)
+        elif file.name.endswith('.txt'):
+            # Handle text files
+            description = file.read().decode('utf-8')
+        else:
+            return JsonResponse({
+                'status': 'error',
+                'message': 'Unsupported file type. Please upload .txt, .docx, or .pdf files only.'
+            }, status=400)
+    else:
+        description = request.POST.get('description', '').strip()
 
     prompt_score = f""" 
     Strictness rating (How strict you should grade this student's assignment): {strictness}
@@ -31,6 +59,7 @@ def grade_assignment(request):
     You are a teacher grading an assignment, with a strictness rating of {strictness} / 10. Grade this students assignment with the 
     following rubric and only output with this format. i want the only thing you tell me to be the score on this JSON format: {{
             "total_score": number,
+            "percentage": number,
             "feedback_summary": string,
             "rubric_breakdown": [
                 {{
@@ -55,6 +84,7 @@ def grade_assignment(request):
         total_score = score_data.get('total_score')
         feedback_summary = score_data.get('feedback_summary')
         rubric_breakdown = score_data.get('rubric_breakdown', [])
+        percentage = score_data.get('percentage')
         
         # Get student and rubric objects for context
         student_obj = Student.objects.get(id=student)
@@ -69,7 +99,11 @@ def grade_assignment(request):
             'strictness': strictness,
             'grade_level': grade_level
         }
-        
+        Progress.objects.create(
+            student=student_obj,
+            rubric=rubric,
+            score=percentage
+        )
         return render(request, 'app/grade_result.html', context)
             
     except json.JSONDecodeError as e:
@@ -84,8 +118,15 @@ def home(request):
     else:
         return render(request, 'app/home.html')
 def dashboard(request):
-    rubrics = Rubric.objects.all()
-    students = Student.objects.all()
+    print(request.user)
+    try:
+        rubrics = Rubric.objects.filter(user = request.user)
+        students = Student.objects.filter(user = request.user)
+    except Exception as e:
+        rubrics = []
+        students = []    
+        print(e)
+    
     context = {
         'rubrics': rubrics,
         'students': students
@@ -107,14 +148,13 @@ def create_rubric(request):
         }
         return render(request, 'app/dashboard.html', context, status=400)
 
-    Rubric.objects.create(title=title, description=description, strictness=strictness , grade_level=grade)
+    Rubric.objects.create(title=title, description=description, strictness=strictness , grade_level=grade, user = request.user)
     return redirect('dashboard')
 
 def progress(request):
-    rubrics = Rubric.objects.all()
-    students = Student.objects.all()
+    rubrics = Rubric.objects.filter(user=request.user)
+    students = Student.objects.filter(user=request.user)
     
-    # Get all subjects with their progress data
     subjects_data = {}
     subject_choices = [
         ('Math', 'Math'),
@@ -131,16 +171,15 @@ def progress(request):
         subject_rubrics = rubrics.filter(subject=subject)
         
         if subject_rubrics.exists():
-            # Get progress data for the last 30 days
-            thirty_days_ago = datetime.now() - timedelta(days=30)
+            # Get all progress data ordered by creation date
             progress_data = Progress.objects.filter(
-                rubric__subject=subject,
-                created_at__gte=thirty_days_ago
+                rubric__subject=subject
             ).order_by('created_at')
             
-            # Get unique dates for labels
-            dates = progress_data.values_list('created_at__date', flat=True).distinct().order_by('created_at__date')
-            labels = [str(date) for date in dates]
+            # Get all assignments in order
+            assignments = progress_data.values_list('created_at', 'rubric__title')
+            labels = [f"{rubric_title} ({created_at.strftime('%Y-%m-%d %H:%M')})" 
+                     for created_at, rubric_title in assignments]
             
             # Get all students who have progress in this subject
             subject_students = Student.objects.filter(progress__rubric__subject=subject).distinct()
@@ -148,37 +187,27 @@ def progress(request):
             # Individual student data
             individual_data = {}
             for student in subject_students:
-                student_data = []
-                for date in dates:
-                    # Get average score for this student on this date for this subject
-                    avg_score = progress_data.filter(
-                        student=student,
-                        created_at__date=date
-                    ).aggregate(avg_score=Avg('score'))['avg_score']
-                    
-                    student_data.append(round(avg_score, 1) if avg_score else None)
-                
+                student_scores = progress_data.filter(student=student).values_list('score', flat=True)
                 individual_data[student.name] = {
                     'id': student.id,
-                    'data': student_data
+                    'data': list(student_scores)  # Convert scores to list
                 }
             
             # Class average data
-            class_average_data = []
-            for date in dates:
-                # Get average score for all students on this date for this subject
+            class_scores = []
+            for assignment in assignments:
                 avg_score = progress_data.filter(
-                    created_at__date=date
+                    created_at=assignment[0]
                 ).aggregate(avg_score=Avg('score'))['avg_score']
                 
-                class_average_data.append(round(avg_score, 1) if avg_score else None)
+                class_scores.append(round(avg_score, 1) if avg_score else None)
             
             subjects_data[subject] = {
                 'labels': labels,
                 'individual': individual_data,
                 'class_average': {
                     'label': 'Class Average',
-                    'data': class_average_data,
+                    'data': class_scores,
                     'borderColor': 'rgb(75, 192, 192)',
                     'backgroundColor': 'rgba(75, 192, 192, 0.1)',
                     'tension': 0.4,
@@ -186,11 +215,12 @@ def progress(request):
                 }
             }
     
+    students_data = [{'id': s.id, 'name': s.name} for s in students]
     context = {
-        'rubrics': rubrics,
-        'students': students,
         'subjects_data': json.dumps(subjects_data),
-        'students_json': json.dumps([{'id': s.id, 'name': s.name} for s in students])
+        'students_json': json.dumps(students_data),
+        'rubrics': rubrics,
+        'students': students
     }
     return render(request, 'app/progress.html', context)
 
@@ -199,7 +229,7 @@ def add_student(request):
     name = request.POST.get('name', '').strip()
     print(name)
     print(request.POST)
-    Student.objects.create(name=name)
+    Student.objects.create(name=name ,user = request.user)
     print(Student.objects.all())
     return redirect('dashboard')
 
