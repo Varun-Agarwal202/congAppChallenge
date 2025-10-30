@@ -1,0 +1,67 @@
+{% extends "account/base_entrance.html" %}
+{% load i18n %}
+{% load allauth account %}
+{% load bootstrap5 %}
+{% block head_title %}
+    {% trans "Sign In" %}
+{% endblock head_title %}
+{% block content %}
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-sm-10 col-md-8 col-lg-5">
+      <div class="card shadow-sm">
+        <div class="card-body p-4">
+          <h1 class="h4 mb-3 text-center">{% trans "Sign In" %}</h1>
+
+          {% if not SOCIALACCOUNT_ONLY %}
+            {% setvar link %}
+              <a href="{{ signup_url }}" class="link-primary">
+            {% endsetvar %}
+            {% setvar end_link %}
+              </a>
+            {% endsetvar %}
+            <p class="text-muted small mb-4">
+              {% blocktranslate %}If you have not created an account yet, then please {{ link }}sign up{{ end_link }} first.{% endblocktranslate %}
+            </p>
+
+            {% url 'account_login' as login_url %}
+            <form method="post" action="{{ login_url }}" novalidate>
+              {% csrf_token %}
+              {% bootstrap_form form bound_css_class="is-invalid" %}
+              {{ redirect_field }}
+
+              <div class="d-grid">
+                <button type="submit" class="btn btn-primary">{% trans "Sign In" %}</button>
+              </div>
+            </form>
+          {% endif %}
+
+          {% if LOGIN_BY_CODE_ENABLED or PASSKEY_LOGIN_ENABLED %}
+            <hr class="my-4" />
+            <div class="d-grid gap-2">
+              {% if PASSKEY_LOGIN_ENABLED %}
+                <button type="submit" form="mfa_login" id="passkey_login" class="btn btn-outline-primary">{% trans "Sign in with a passkey" %}</button>
+              {% endif %}
+              {% if LOGIN_BY_CODE_ENABLED %}
+                <a class="btn btn-outline-primary" href="{{ request_login_code_url }}">{% trans "Send me a sign-in code" %}</a>
+              {% endif %}
+            </div>
+          {% endif %}
+
+          {% if SOCIALACCOUNT_ENABLED %}
+            <div class="mt-4">
+              {% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
+{% block extra_body %}
+    {{ block.super }}
+    {% if PASSKEY_LOGIN_ENABLED %}
+        {% include "mfa/webauthn/snippets/login_script.html" with button_id="passkey_login" %}
+    {% endif %}
+{% endblock %}

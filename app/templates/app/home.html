@@ -1,0 +1,47 @@
+{% extends 'app/base.html' %}
+{% load i18n %}
+{% block content %}
+<h1 class="text-center mt-4">{% trans "Welcome to GradeSmart!" %}</h1>
+<p class="text-center">{% trans "Your one-stop solution for automated grading and feedback." %}</p>
+<div class="text-center my-4">
+    <a href="{% url 'account_signup' %}" class="btn btn-primary btn-lg">{% trans "Get Started" %}</a>
+</div>
+
+<!-- Reviews Below Title Section -->
+<div class="container my-5">
+  <div class="row justify-content-center text-center g-4">
+
+    <!-- Review 1 -->
+    <div class="col-12 col-md-4 col-lg-3">
+      <div class="review-outbox p-3 rounded-4 shadow-sm mx-auto">
+        <h5 class="fw-bold mb-3">Shreyas Sarandesa</h5>
+        <div class="review-inbox rounded-3 p-3">
+          <p class="mb-0">"GradeSmart helped me save hours on grading assignments. Super easy to use, and effective as well!"</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review 2 -->
+    <div class="col-12 col-md-4 col-lg-3">
+      <div class="review-outbox p-3 rounded-4 shadow-sm mx-auto">
+        <h5 class="fw-bold mb-3">Shali Maharastra</h5>
+        <div class="review-inbox rounded-3 p-3">
+          <p class="mb-0">"Very intuitive and clean! I can finally focus on my curriculum instead of wasting so much time grading!"</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review 3 -->
+    <div class="col-12 col-md-4 col-lg-3">
+      <div class="review-outbox p-3 rounded-4 shadow-sm mx-auto">
+        <h5 class="fw-bold mb-3">Jayden Ngo</h5>
+        <div class="review-inbox rounded-3 p-3">
+          <p class="mb-0">"A must-use for educators! Efficient, productive, and free. Tracking student progress is innovative!"</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,107 @@
+{% extends 'app/base.html' %}
+{% block content %}
+<div class="container-fluid py-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <!-- Header -->
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-info text-white">
+                    <h3 class="mb-0">
+                        <i class="fas fa-brain me-2"></i>Train AI Model
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <p class="mb-3">Upload past graded assignments to help train the AI model and improve grading accuracy.</p>
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle me-2"></i>
+                        Upload assignments that have been previously graded to help the AI learn your grading style.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Upload Form -->
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0">
+                        <i class="fas fa-upload me-2"></i>Upload Past Graded Assignments
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <form id="trainModelForm" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        
+                        <div class="mb-4">
+                            <label for="files" class="form-label fw-medium">
+                                <i class="fas fa-file-upload me-2"></i>Select Multiple Assignments
+                            </label>
+                            <input type="file" class="form-control form-control-lg" id="files" name="files" 
+                                   multiple accept=".txt,.docx,.pdf" required>
+                            <small class="text-muted">Supported formats: .txt, .docx, .pdf</small>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="rubric_for_training" class="form-label fw-medium">
+                                <i class="fas fa-clipboard-list me-2"></i>Select Rubric for These Assignments
+                            </label>
+                            <select class="form-select form-select-lg" id="rubric_for_training" name="rubric_for_training" required>
+                                <option value="" selected disabled>Choose a rubric...</option>
+                                {% for rubric in rubrics %}
+                                    <option value="{{ rubric.id }}">{{ rubric.title }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="grades" class="form-label fw-medium">
+                                <i class="fas fa-star me-2"></i>Enter Scores (comma-separated, in order of files)
+                            </label>
+                            <input type="text" class="form-control form-control-lg" id="grades" name="grades" 
+                                   placeholder="e.g., 85, 92, 78, 88" required>
+                            <small class="text-muted">Enter scores in the same order as your uploaded files</small>
+                        </div>
+
+                        <div class="d-flex gap-2">
+                            <button type="submit" class="btn btn-success btn-lg px-5">
+                                <i class="fas fa-brain me-2"></i>Train Model
+                            </button>
+                            <a href="{% url 'dashboard' %}" class="btn btn-outline-secondary btn-lg px-4">
+                                <i class="fas fa-times me-2"></i>Cancel
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Instructions -->
+            <div class="card shadow-sm">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0">
+                        <i class="fas fa-question-circle me-2"></i>How to Train the Model
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <ol>
+                        <li class="mb-2"><strong>Select Files:</strong> Upload multiple assignments that you have already graded</li>
+                        <li class="mb-2"><strong>Choose Rubric:</strong> Select the rubric that was used to grade these assignments</li>
+                        <li class="mb-2"><strong>Enter Scores:</strong> Provide the scores you gave each assignment (comma-separated)</li>
+                        <li><strong>Train:</strong> Click "Train Model" to process and improve future grading</li>
+                    </ol>
+                    <div class="alert alert-warning mt-3">
+                        <i class="fas fa-exclamation-triangle me-2"></i>
+                        <strong>Note:</strong> The more diverse examples you provide, the better the AI will understand your grading style.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Show upload status when form is submitted
+    document.getElementById('trainModelForm').addEventListener('submit', function(e) {
+        const submitBtn = this.querySelector('button[type="submit"]');
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Training...';
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,231 @@
+{% extends 'app/base.html' %}
+{% load i18n %}
+
+{% block content %}
+<script
+src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0">
+</script>
+
+<div class = "container">
+    <h1>{% trans "Student Progress" %}</h1>
+    
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <label for="subject-select" class="form-label">{% trans "Subject:" %}</label>
+            <select class="form-select" id="subject-select">
+                <option value="">{% trans "Select a Subject" %}</option>
+                {% for subject in available_subjects %}
+                    <option value="{{ subject }}">{{ subject }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-md-6">
+            <label for="student-select" class="form-label">{% trans "Student:" %}</label>
+            <select class="form-select" id="student-select">
+                <option value="">{% trans "Select a Student" %}</option>
+                <option value="class_average">{% trans "Class Average" %}</option>
+                {% for student in students %}
+                    <option value="{{ student.id }}">{{ student.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+    
+    <div class="progress-list"></div>
+    <canvas id="progress-chart"></canvas>
+</div>
+<script>
+let progressChart;
+const subjectsData = JSON.parse('{{ subjects_data|safe }}');
+const studentsData = JSON.parse('{{ students_json|safe }}');
+
+// Initialize chart with empty data
+function initChart() {
+    const ctx = document.getElementById('progress-chart').getContext('2d');
+    progressChart = new Chart(ctx, {
+        type: "line",
+        data: {
+            labels: [],
+            datasets: []
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 100,
+                    title: {
+                        display: true,
+                        text: 'Score (%)'
+                    }
+                },
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Assignments'
+                    },
+                    ticks: {
+                        maxRotation: 45,
+                        minRotation: 45,
+                        autoSkip: false,
+                        callback: function(val, index) {
+                            // Get the label text
+                            const label = this.getLabelForValue(val);
+                            // Truncate to 20 characters and add ellipsis if needed
+                            return label.length > 20 ? label.substr(0, 20) + '...' : label;
+                        },
+                        font: {
+                            size: 11
+                        }
+                    }
+                }
+            },
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Student Progress Over Time'
+                },
+                legend: {
+                    display: true,
+                    position: 'top'
+                },
+                tooltip: {
+                    callbacks: {
+                        // Show full text in tooltip
+                        title: function(context) {
+                            return context[0].label;
+                        }
+                    }
+                }
+            },
+            layout: {
+                padding: {
+                    bottom: 50
+                }
+            }
+        }
+    });
+}
+
+function updateStudentDropdown(subject) {
+    const studentSelect = document.getElementById('student-select');
+    const subjectData = subjectsData[subject];
+    
+    if (!subjectData) {
+        studentSelect.disabled = true;
+        studentSelect.innerHTML = '<option value="">Select a Subject first</option>';
+        return;
+    }
+    
+    // Enable dropdown and populate with students who have data for this subject
+    studentSelect.disabled = false;
+    let options = '<option value="">Select a Student</option><option value="class_average">Class Average</option>';
+    
+    // Add students who have data for this subject
+    for (const [studentName, studentInfo] of Object.entries(subjectData.individual)) {
+        options += `<option value="${studentInfo.id}">${studentName}</option>`;
+    }
+    
+    studentSelect.innerHTML = options;
+}
+
+function loadProgressData(subject, studentId) {
+    if (!subject || !subjectsData[subject]) {
+        progressChart.data.labels = [];
+        progressChart.data.datasets = [];
+        progressChart.update();
+        return;
+    }
+
+    const data = subjectsData[subject];
+    
+    if (studentId === 'class_average') {
+        // Show class average - use overall labels
+        progressChart.data.labels = data.labels;
+        progressChart.data.datasets = [data.class_average];
+        progressChart.options.plugins.title.text = `${subject} - Class Average`;
+    } else if (studentId && data.individual) {
+        // Show individual student - use student's specific labels
+        const studentName = Object.keys(data.individual).find(name => 
+            data.individual[name].id == studentId
+        );
+        
+        if (studentName) {
+            const studentData = data.individual[studentName];
+            // Use student's own labels if available, otherwise fall back to general labels
+            progressChart.data.labels = studentData.labels || data.labels;
+            progressChart.data.datasets = [{
+                label: studentName,
+                data: studentData.data,
+                borderColor: 'rgb(54, 162, 235)',
+                backgroundColor: 'rgba(54, 162, 235, 0.1)',
+                tension: 0.4,
+                fill: false
+            }];
+            progressChart.options.plugins.title.text = `${subject} - ${studentName}`;
+        }
+    } else {
+        // Show all students for this subject
+        // Each student has different assignments, so we need to handle this differently
+        const datasets = [];
+        let colorIndex = 0;
+        
+        // Collect all unique labels across all students
+        const allLabelsSet = new Set();
+        for (const [studentName, studentInfo] of Object.entries(data.individual)) {
+            if (studentInfo.labels) {
+                studentInfo.labels.forEach(label => allLabelsSet.add(label));
+            }
+        }
+        const allLabels = Array.from(allLabelsSet);
+        progressChart.data.labels = allLabels;
+        
+        // Create dataset for each student with their own labels mapped to the combined labels
+        for (const [studentName, studentInfo] of Object.entries(data.individual)) {
+            const studentLabels = studentInfo.labels || data.labels;
+            const studentData = studentInfo.data;
+            
+            // Map student data to the combined labels array
+            const mappedData = allLabels.map(label => {
+                const index = studentLabels.indexOf(label);
+                return index !== -1 ? studentData[index] : null;
+            });
+            
+            datasets.push({
+                label: studentName,
+                data: mappedData,
+                borderColor: `hsl(${colorIndex * 60}, 70%, 50%)`,
+                backgroundColor: `hsla(${colorIndex * 60}, 70%, 50%, 0.1)`,
+                tension: 0.4,
+                fill: false
+            });
+            colorIndex++;
+        }
+        
+        progressChart.data.datasets = datasets;
+        progressChart.options.plugins.title.text = `${subject} - All Students`;
+    }
+    
+    progressChart.update();
+}
+
+// Event listeners
+document.getElementById('subject-select').addEventListener('change', function() {
+    const selectedSubject = this.value;
+    updateStudentDropdown(selectedSubject);
+    loadProgressData(selectedSubject);
+});
+
+document.getElementById('student-select').addEventListener('change', function() {
+    const selectedSubject = document.getElementById('subject-select').value;
+    const selectedStudent = this.value;
+    loadProgressData(selectedSubject, selectedStudent);
+});
+
+// Initialize chart when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    initChart();
+});
+</script>
+{% endblock %}

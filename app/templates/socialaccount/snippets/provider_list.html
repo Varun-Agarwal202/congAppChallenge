@@ -1,0 +1,51 @@
+{% load allauth socialaccount %}
+{% get_providers as socialaccount_providers %}
+{% if socialaccount_providers %}
+    {% element provider_list %}
+        {% for provider in socialaccount_providers %}
+            {% if provider.id == "openid" %}
+                {% for brand in provider.get_brands %}
+                    {% provider_login_url provider openid=brand.openid_url process=redirect as href %}
+                    {% element provider name=brand.name provider_id=provider.id href=href %}
+                    {% endelement %}
+                {% endfor %}
+            {% endif %}
+            {% provider_login_url provider process=process scope=scope auth_params=auth_params as href %}
+            {% load i18n %}
+
+<a href="{{ href }}" class="google-button">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google logo" class="google-icon">
+  <span>Continue with Google</span>
+</a>
+
+<style>
+  .google-button {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    border-radius: 8px;
+    background-color: white;
+    color: #444;
+    font-weight: 500;
+    font-family: sans-serif;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    width: 105%;
+    margin-left: -30px;
+    padding-right: 20px;;
+  }
+
+  .google-button:hover {
+    background-color: #f5f5f5;
+  }
+
+  .google-icon {
+    height: 20px;
+    margin-right: 10px;
+  }
+</style>
+
+        {% endfor %}
+    {% endelement %}
+{% endif %}

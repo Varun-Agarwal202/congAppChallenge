@@ -1,0 +1,155 @@
+/* Base Reset */
+:root {
+  --primary: #7b3ff3;   /* Core purple tone from logo */
+  --secondary: #b57aff; /* Light accent purple */
+  --background-light: #f8f9fc; 
+  --text-dark: #1e1e2f;
+  --text-muted: #555;
+  --accent: #6c2ed9;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--background-light);
+  color: var(--text-dark);
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+/* Dashboard Layout */
+.dashboard-container {
+  flex: 1 0 auto;
+  width: 100%;
+  min-height: calc(100vh - 250px);
+  padding-bottom: 3rem;
+  background: linear-gradient(135deg, var(--background-light) 0%, #eceafd 100%);
+}
+
+/* Header */
+.dashboard-header {
+  background: white;
+  padding: 2rem 0;
+  border-bottom: 1px solid #dee2e6;
+  text-align: center;
+}
+
+.dashboard-header h1 {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* Footer */
+.footer {
+  flex-shrink: 0;
+  width: 100%;
+  background: var(--primary);
+  color: white;
+  padding: 1.25rem 0;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.footerContent {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Cards */
+.card {
+  border: none;
+  border-radius: 16px;
+  background: white;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(123, 63, 243, 0.2);
+}
+
+.card-header {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  border-radius: 16px 16px 0 0;
+  padding: 1.25rem;
+  font-weight: 600;
+}
+
+/* Forms */
+.form-control, .form-select {
+  border-radius: 8px;
+  border: 2px solid #e9ecef;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 0.2rem rgba(123, 63, 243, 0.2);
+}
+
+/* Buttons */
+.btn {
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+}
+
+.btn:hover {
+  background-color: var(--accent);
+  transform: translateY(-1px);
+  box-shadow: 0 0 15px rgba(123, 63, 243, 0.4);
+}
+
+.btn-lg {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+}
+
+/* Review Boxes */
+.review-outbox {
+  background-color: #f2efff;
+  border-left: 5px solid var(--primary);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.review-outbox:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(123, 63, 243, 0.15);
+}
+
+.review-inbox {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.review-outbox h5 {
+  color: var(--text-dark);
+}
+
+.review-outbox p {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .dashboard-header h1 {
+    font-size: 1.8rem;
+  }
+  .btn-lg {
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+  }
+}
